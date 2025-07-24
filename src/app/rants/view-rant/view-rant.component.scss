@@ -17,7 +17,7 @@
       position: relative;
       color: var(--white-color);
       padding: 2rem;
-      transition: .2s all;
+      transition: .3s all;
       align-items: center;
       cursor: pointer;
 
@@ -34,6 +34,7 @@
         height: 100%;
         z-index: 0;
         opacity: .5;
+        transition: .5s all;
 
         &:hover {
           opacity: .6;
@@ -42,7 +43,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: .2s all;
 
         > div {
           position: relative;
@@ -129,5 +129,9 @@
         }
       }
     }
+  }
+
+  scott-loading {
+    padding: 10% 0;
   }
 }

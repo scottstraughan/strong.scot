@@ -8,10 +8,13 @@ import { Meta, Title } from '@angular/platform-browser';
 import { RantsComponent } from '../rants.component';
 import { HighlightJS } from 'ngx-highlightjs';
 import { DOCUMENT } from '@angular/common';
+import { LoadingAnimationComponent } from '../../shared/ui-components/loading-animaton/loading-animation.component';
 
 @Component({
   selector: 'scott-view-rant',
-  imports: [],
+  imports: [
+    LoadingAnimationComponent
+  ],
   templateUrl: './view-rant.component.html',
   standalone: true,
   styleUrl: './view-rant.component.scss'
@@ -24,8 +27,6 @@ export class ViewRantComponent implements OnInit {
 
   readonly revealThumbnail: WritableSignal<boolean> = signal(false);
 
-  private hljs = inject(HighlightJS);
-
   /**
    * Constructor.
    */
@@ -33,9 +34,10 @@ export class ViewRantComponent implements OnInit {
     private rantService: RantService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    title: Title,
     private meta: Meta,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private hljs: HighlightJS,
+    title: Title,
   ) {
     this.rant = toSignal(this.activatedRoute.params
         .pipe(
@@ -73,7 +75,7 @@ export class ViewRantComponent implements OnInit {
    * @inheritdoc
    */
   ngOnInit(): void {
-    this.hljs.highlightAll().then();
+    setTimeout(() => this.hljs.highlightAll().then());
   }
 
   onToggleThumbnail() {
