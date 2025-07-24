@@ -1,0 +1,70 @@
+@use "../../../../scss/common" as *;
+
+:host {
+  background-color: var(--hint-color);
+  display: block;
+  height: auto;
+  width: 100%;
+  user-select: none;
+
+  .screenshot {
+    align-items: center;
+    background-position: left;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    position: relative;
+
+    img,
+    video {
+      position: absolute;
+      z-index: 0;
+      width: 100%;
+      min-height: 100%;
+      height: auto;
+    }
+
+    .nav {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+
+      .next,
+      .previous,
+      .separator {
+        @include center;
+
+        cursor: pointer;
+        padding: 2rem 4rem;
+        transition: .5s all;
+
+        img {
+          opacity: 0;
+          transition: .5s all;
+          width: 30px !important;
+          height: auto;
+        }
+      }
+
+      .next:hover,
+      .previous:hover {
+        background-color: rgba(0, 0, 0, .4);
+
+        img {
+          opacity: 1 !important;
+        }
+      }
+
+      .separator {
+        flex: 1;
+      }
+    }
+
+    &:hover .nav img {
+      opacity: .6 !important;
+    }
+  }
+}

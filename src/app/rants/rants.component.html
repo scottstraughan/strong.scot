@@ -1,0 +1,31 @@
+@if (visibleRants().length == 0) {
+  <scott-loading></scott-loading>
+}
+
+<div class="rants container-wrapper">
+  @for (rant of visibleRants(); track rant.tag) {
+    <a class="rant"
+       href="rants/{{ rant.tag }}"
+       [class.primary]="$index == 0" [class.secondary]="$index == 1"
+       [style.background-image]="$index < 2 ? 'url(' + rant.thumbnail + ')' : 'none'">
+
+      @if ($index >= 2) {
+        <div class="icon">
+          <div class="icon-wrapper">
+            <img [ngSrc]="$index < 2 ? rant.thumbnail : rant.icon" alt="{{ rant.title }} Icon" fill />
+          </div>
+        </div>
+      }
+
+      <div class="info">
+        <h1>{{ rant.title }}</h1>
+        <h2>{{ rant.description }}</h2>
+      </div>
+    </a>
+  }
+
+  @if (visibleRants().length < allRants().length) {
+    <div class="view-more" (click)="onViewMore()">
+      <img src="./images/icons/more.svg" alt="Show More" /> Show More</div>
+  }
+</div>

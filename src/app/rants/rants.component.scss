@@ -1,0 +1,127 @@
+@use '../../scss/variables' as *;
+@use '../../scss/common' as *;
+
+scott-loading {
+  padding: 10% 0;
+}
+
+.rants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .rant {
+    @include interactive;
+
+    display: flex;
+    align-items: flex-start;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--white-color);
+    width: 100%;
+
+    .icon-wrapper {
+      position: relative;
+
+      img {
+        object-fit: contain;
+      }
+    }
+
+    &.primary,
+    &.secondary {
+      background-color: var(--color-dark-purple);
+      color: var(--white-color);
+      background-size: cover;
+      background-position: center;
+      align-items: flex-end;
+
+      .info {
+        padding: 3rem;
+        backdrop-filter: none;
+        background: linear-gradient(0deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+
+        @media screen and (min-width: $mobile-breakpoint) {
+          padding: 4rem 3rem 3rem 3rem;
+        }
+      }
+    }
+
+    &:not(.primary),
+    &:not(.secondary) {
+      @media screen and (min-width: $mobile-breakpoint) {
+        img {
+          width: 90px;
+          height: 60px;
+        }
+      }
+    }
+
+    .icon {
+      @include center;
+
+      padding: 0 1rem;
+      background-color: #ede8f1;
+
+      .icon-wrapper {
+        position: relative;
+        width: 90px;
+        height: 62px;
+
+        img {
+          object-fit: contain;
+        }
+      }
+    }
+
+    .info {
+      flex: 1;
+      padding: 2rem;
+
+      h1, h2 {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+        opacity: .5;
+        font-weight: normal;
+        margin-top: .5rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: $mobile-breakpoint) {
+    .rant {
+      flex: 1 1 calc(50% - .5rem);
+    }
+
+    .rant.primary {
+      flex: 1 1 calc(60% - .5rem);
+      height: 500px;
+    }
+
+    .rant.secondary {
+      flex: 1 1 calc(40% - .5rem);
+    }
+  }
+}
+
+.view-more {
+  @include interactive;
+
+  background-color: var(--white-color);
+  text-align: center;
+  padding: 2rem 0;
+  width: 100%;
+  border-radius: 12px;
+
+  img {
+    vertical-align: middle;
+    margin-right: .5rem;
+  }
+}

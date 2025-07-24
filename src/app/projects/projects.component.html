@@ -1,0 +1,32 @@
+<div class="projects ">
+  @for (project of projects(); track project.name) {
+    <div class="project" [style.background-image]="'url(' + getInitialGraphicForProject(project)?.url + ')'">
+      <div class="bg-container">
+        <div class="container-wrapper">
+          <div class="screenshot">
+            <scott-image-collection [images]="project.graphics"></scott-image-collection>
+          </div>
+
+          <div class="about">
+            <div>
+              <h1>{{ project.name }}</h1>
+              <p>{{ project.description }}</p>
+
+              <div class="actions">
+                @for (url of project.urls; track url) {
+                  <a class="button" [href]="url.href" target="_blank">Go to {{ url.name }}</a>
+                }
+              </div>
+
+              <ul class="tags">
+                @for (tag of project.tags; track tag) {
+                  <li>{{ tag }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

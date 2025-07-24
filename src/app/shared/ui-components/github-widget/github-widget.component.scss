@@ -1,0 +1,74 @@
+@use "../../../../scss/common" as *;
+@use "../../../../scss/variables" as *;
+
+:host {
+  @include interactive;
+
+  display: block;
+  background-color: var(--color-base-secondary);
+  color: var(--white-color);
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+
+  .icon {
+    padding: 1rem 0 .5rem 0;
+    background-color: rgba(0, 0, 0, .2);
+
+    img {
+      width: 70px;
+      height: auto;
+    }
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1.5rem 0;
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+    }
+
+    .login {
+      font-size: .9rem;
+      opacity: .8;
+    }
+  }
+
+  .highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1rem 1rem;
+    border-top: rgba(255, 255, 255, .05) 1px solid;
+
+    h1 {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    h2 {
+      margin-top: .2rem;
+      font-size: .8rem;
+      font-weight: normal;
+      opacity: .7;
+    }
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      h1 {
+        font-size: .9rem;
+      }
+
+      h2 {
+        font-size: .5rem;
+      }
+    }
+  }
+
+  scott-loading {
+    padding: 2rem 0;
+  }
+}

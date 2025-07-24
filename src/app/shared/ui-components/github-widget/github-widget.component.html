@@ -1,0 +1,31 @@
+<a href="https://www.github.com/scottstraughan" target="_blank">
+  <div class="icon">
+    <img class="logo" ngSrc="./images/logos/github.svg" alt="GitHub Logo" height="17" width="70" />
+  </div>
+
+  @if (bio(); as bio) {
+    <div class="title">
+      <div>
+        <img class="avatar" [ngSrc]="bio.avatar_url" alt="GitHub Avatar" height="460" width="460" />
+      </div>
+      <div class="login">github.com/{{ bio.login }}</div>
+    </div>
+
+    <div class="highlights">
+      <div>
+        <h1>{{ bio.public_repos }}</h1>
+        <h2>Repos</h2>
+      </div>
+      <div>
+        <h1>{{ bio.followers }}</h1>
+        <h2>Followers</h2>
+      </div>
+      <div>
+        <h1>{{ bio.following }}</h1>
+        <h2>Following</h2>
+      </div>
+    </div>
+  } @else {
+    <scott-loading></scott-loading>
+  }
+</a>

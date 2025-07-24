@@ -1,0 +1,25 @@
+@if (current(); as image) {
+  <div class="screenshot" [title]="image.title">
+
+    @if (image.url.includes('mp4')) {
+      <video autoplay [muted]="'muted'" muted="muted" loop>
+        <source [src]="image.url" type="video/mp4">
+      </video>
+    } @else {
+      <img [src]="image.url" alt="{{ image.title }}" />
+    }
+
+    <!-- Previous / Next navigator -->
+    @if (images().length > 1) {
+      <div class="nav">
+        <div class="previous" (click)="onPrevious()" title="Go to previous image">
+          <img src="./images/icons/previous.svg" alt="Previous" height="24" width="24" />
+        </div>
+        <div class="separator"></div>
+        <div class="next" (click)="onNext()" title="Go to next image">
+          <img src="./images/icons/next.svg" height="24" width="24" alt="Next" />
+        </div>
+      </div>
+    }
+  </div>
+}

@@ -1,0 +1,39 @@
+@use '../../../../scss/common' as *;
+
+:host {
+  --loading-icon-size: 70px;
+  --loading-icon-weight: 10px;
+
+  @include center(true);
+
+  .loader {
+    width: var(--loading-icon-size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: var(--loading-icon-weight) solid #0000;
+    border-right-color: var(--hint-color-alt);
+    position: relative;
+    animation: l24 1s infinite linear;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      inset: calc(var(--loading-icon-weight) * -1);
+      border-radius: 50%;
+      border: inherit;
+      animation: inherit;
+      animation-duration: 2s;
+    }
+
+    &:after {
+      animation-duration: 4s;
+    }
+  }
+
+  @keyframes l24 {
+    100% {
+      transform: rotate(1turn)
+    }
+  }
+}

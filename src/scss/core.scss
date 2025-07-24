@@ -1,0 +1,86 @@
+@use 'variables' as *;
+@use 'common' as *;
+
+body {
+  margin: 0;
+  font-family: Arial, serif;
+  background-color: var(--color-dark-purple);
+  color: var(--color-dark-purple);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: inherit;
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+
+.container-wrapper {
+  --container-width: 1200px;
+  --container-padding: 1rem;
+
+  max-width: var(--container-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+.formatted-content {
+  font-size: 1.1rem;
+
+  a {
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  img, video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  video {
+    width: 50%;
+  }
+
+  code {
+    background-color: var(--hint-color-alt);
+    color: var(--white-color);
+    padding: .2rem .3rem;
+    border-radius: 4px;
+    font-size: .8em;
+  }
+
+  pre code {
+    display: block;
+    background-color: var(--color-dark-purple);
+    color: var(--white-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+}
+
+.button {
+  @include interactive;
+
+  background-color: var(--hint-color-alt);
+  color: var(--white-color);
+  padding: 1rem 2rem;
+  border-radius: 6px;
+}

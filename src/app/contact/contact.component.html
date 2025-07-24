@@ -1,0 +1,65 @@
+<div class="container-wrapper about">
+
+  @if (sent()) {
+    @if (error()) {
+      <div class="sent">
+        <img ngSrc="./images/icons/thumb_up.svg" alt="Thumb's Up" height="24" width="24" />
+        <h1>Small Problem!</h1>
+        <p>Your message didn't seem to send properly, please click the button below to send again..</p>
+
+        <!-- A more traditional method -->
+        <form method="POST" action="https://formcarry.com/s/OMfnuh0fyp8">
+          <input type="hidden" name="name" [value]="contactForm.get('name')?.value" />
+          <input type="hidden" name="subject" [value]="contactForm.get('subject')?.value" />
+          <input type="hidden" name="message" [value]="contactForm.get('message')?.value" />
+          <input type="submit" class="button action" value="Send Again">
+        </form>
+      </div>
+    } @else {
+      <div class="sent">
+        <img ngSrc="./images/icons/thumb_up.svg" alt="Thumb's Up" height="24" width="24" />
+        <h1>Thank you!</h1>
+        <p>I'll get back to you shortly, thank you for your message.</p>
+        <a class="button action" href="/contact">Close</a>
+      </div>
+    }
+  } @else {
+    <h1>Contact</h1>
+    <p>I would love to hear from you! If you have something to say or ask, please message me using the form below. You
+      could also connect with me on <a href="https://www.linkedin.com/in/scotttttty" target="_blank">LinkedIn</a>.</p>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" method="POST" action="https://formcarry.com/s/OMfnuh0fyp8">
+      <label for="name">Name</label>
+      <input id="name"
+             formControlName="name"
+             name="name"
+             type="text"
+             placeholder="John Smith" />
+
+      <label for="subject">Subject</label>
+      <input id="subject"
+             formControlName="subject"
+             name="subject"
+             type="text"
+             placeholder="Your Website Sucks!" />
+
+      <label for="subject">Message</label>
+      <textarea
+          placeholder="Your website is buggy and annoying, please purge it from the web."
+          formControlName="message"
+          name="message"></textarea>
+
+      <input type="hidden" name="_next" value="http://localhost:4200/contact">
+
+      <button type="submit" [disabled]="contactForm.invalid || sending()">
+        <scott-loading [style.display]="sending() ? 'block' : 'none'"></scott-loading>
+
+        @if (!sending() && contactForm.invalid) {
+          To send, please fill in values for {{ getInvalidForms() }}.
+        } @else if (!sending()) {
+          Send Message
+        }
+      </button>
+    </form>
+  }
+</div>

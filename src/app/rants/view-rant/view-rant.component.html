@@ -1,0 +1,17 @@
+@if (rant(); as rant) {
+  <article>
+    <header [style.background-image]="'url(' + rant.thumbnail + ')'">
+      <div class="bg-wrapper">
+        <div class="container-wrapper">
+          <h1>{{ rant.title }}</h1>
+          <h2>{{ rant.description }}</h2>
+          <h3>Ranted on {{ rant.date.toDateString() }}.</h3>
+        </div>
+      </div>
+    </header>
+
+    <div class="body container-wrapper">
+      <div class="formatted-content content" [innerHTML]="rant.body"></div>
+    </div>
+  </article>
+}

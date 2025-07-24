@@ -1,0 +1,56 @@
+@use "../../../../scss/common" as *;
+@use "../../../../scss/variables" as *;
+
+:host {
+  @include interactive;
+
+  display: block;
+  background-color: #3c6bb1;
+  color: var(--white-color);
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+
+  .icon {
+    padding: 1rem 0 .5rem 0;
+    background-color: rgba(0, 0, 0, .2);
+
+    img {
+      width: 70px;
+      height: auto;
+    }
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1.5rem 0;
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+    }
+
+    .login {
+      font-size: .9rem;
+      opacity: .8;
+    }
+  }
+
+  .connect {
+    padding: 0 2rem 1rem 2rem;
+
+    .button {
+      display: block;
+      background-color: rgba(0, 0, 0, .1);
+      border-radius: 12px;
+      padding: 1rem;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, .2);
+      }
+    }
+  }
+}

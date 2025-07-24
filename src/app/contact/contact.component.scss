@@ -1,0 +1,93 @@
+@use '../../scss/common' as *;
+
+.about {
+  a {
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  form {
+    input,
+    textarea,
+    button {
+      @include interactive;
+      background-color: var(--white-color);
+    }
+
+    label,
+    input,
+    textarea,
+    button {
+      width: 100%;
+      font: inherit;
+      padding: 1rem;
+      border-radius: 6px;
+      border: 0;
+    }
+
+    label {
+      display: block;
+      padding: 1rem 0 .5rem 0;
+      font-weight: bold;
+    }
+
+    textarea {
+      font: inherit;
+      padding: 1rem;
+      min-height: 500px;
+    }
+
+    button {
+      @include center(true);
+
+      margin-top: 1rem;
+      padding: 1.5rem 0;
+      background-color: var(--hint-color);
+      color: var(--white-color);
+      cursor: pointer;
+
+      &:disabled {
+        opacity: .6;
+        cursor: not-allowed;
+      }
+
+      scott-loading {
+        --loading-icon-size: 30px;
+        --loading-icon-weight: 4px;
+      }
+    }
+  }
+
+  .sent {
+    background-color: var(--hint-color-alt);
+    color: var(--white-color);
+    padding: 4rem;
+    border-radius: 12px;
+    text-align: center;
+
+    img {
+      width: 60px;
+      height: auto;
+    }
+  }
+
+  .button.action {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: 0;
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 6px;
+    color: var(--white-color);
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-weight: normal;
+    transition: .2s all;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .3);
+    }
+  }
+}

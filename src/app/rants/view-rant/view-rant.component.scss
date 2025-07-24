@@ -1,0 +1,75 @@
+@use "../../../scss/variables" as *;
+@use "../../../scss/common" as *;
+
+:host {
+  display: block;
+
+  article {
+    display: flex;
+    flex-direction: column;
+
+    header {
+      background-position: center;
+      background-size: cover;
+      background-color: black;
+      text-align: center;
+
+      @media screen and (min-width: $mobile-breakpoint) {
+        text-align: left;
+      }
+
+      .bg-wrapper {
+        display: flex;
+        min-height: 400px;
+        align-items: center;
+        color: var(--white-color);
+        background-color: rgba(0, 0, 0, .6);
+        transition: .5s all;
+        backdrop-filter: blur(4px);
+
+        &:not(:hover) {
+          backdrop-filter: none;
+        }
+
+        @media screen and (min-width: $mobile-breakpoint) {
+          align-items: flex-end;
+          padding-bottom: 2rem;
+        }
+      }
+
+      h1, h2, h3 {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        padding-top: .4rem;
+        font-weight: normal;
+        opacity: .7;
+      }
+
+      h3 {
+        margin-top: 2rem;
+        font-weight: normal;
+        font-size: 1rem;
+        opacity: .5;
+      }
+    }
+
+    .body {
+      flex: 1;
+
+      @media screen and (min-width: $mobile-breakpoint) {
+        padding: 0;
+
+        .content {
+          background-color: rgba(var(--white-color-rgb), .7);
+          padding: 3rem 4rem;
+        }
+      }
+    }
+  }
+}

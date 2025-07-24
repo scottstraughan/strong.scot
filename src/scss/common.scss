@@ -1,0 +1,22 @@
+@use 'variables' as *;
+
+@mixin center($justify: true) {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  @if $justify {
+    justify-content: center;
+  }
+}
+
+@mixin interactive() {
+  box-shadow: 2px 2px 5px -3px rgba(0, 0, 0, .3);
+  transition: .2s all;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 3px 3px 5px -3px rgba(0, 0, 0, .4);
+    transform: scale(1.01);
+  }
+}

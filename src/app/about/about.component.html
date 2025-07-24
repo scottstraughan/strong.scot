@@ -1,0 +1,56 @@
+<div class="photos">
+  <div class="wrapper">
+    @for (photo of photos; track photo) {
+      <div class="img" [style.background-image]="'url(' + photo + ')'"></div>
+    }
+  </div>
+</div>
+
+<div class="container-wrapper about">
+  <div class="bio">
+    <h1>About Me</h1>
+    <p>My name is Scott Straughan, and I’m a 37-year-old full stack software engineer with over 15 years of industry
+      experience. I’ve spent the majority of my career at Codeplay Software, where I’ve had the opportunity to grow
+      alongside a talented team and work across a broad range of projects and technologies. My core programming
+      languages include Python, TypeScript, and Java, and I enjoy the flexibility and problem-solving challenges that
+      come with working across the full stack.</p>
+
+    <p>Much of my recent work has involved cloud-based solutions, particularly using AWS services like Lambda, S3, and
+      DynamoDB. I take pride in being someone who can be handed a task and see it through to completion—efficiently,
+      reliably, and with minimal fuss. I’m known by my colleagues as a friendly and collaborative team member, someone
+      who contributes not only technical skills but also a positive and grounded energy to every project I’m involved
+      in.</p>
+
+    <p>Outside of work, I enjoy getting outdoors and staying active. You’ll often find me hill walking, keeping up a
+      regular routine at the gym, or indulging in my passion for cars. Whether I’m solving a problem in code or taking
+      on a new trail, I’m always looking for ways to push forward, keep learning, and enjoy the journey.</p>
+
+    <p>During university and early in my career, I began exploring Android development as part of my personal interest
+      in building useful, user-focused tools. One of my first personal projects was an app called SMS2PC—one of the
+      earliest Android apps that allowed users to send and receive text messages from their computer via their phone. It
+      included both a desktop client and a mobile app, and was well received, earning hundreds of 5-star reviews. Over
+      the years, I’ve continued to pursue personal and open source projects, including Saorsail, ScoreDash, jekyll-csp,
+      and others. I’m passionate about the value of free and open source software, and I enjoy contributing tools that
+      others can build on, learn from, or benefit from directly.</p>
+
+    <a class="cv fancy" href="./files/cv.pdf" target="_blank" title="Download my CV">
+      <div class="icon">
+        <img ngSrc="./images/icons/download.svg" alt="Download" height="24" width="24" />
+      </div>
+      <div class="details">
+        <div>
+          <h1>Download My CV</h1>
+          <p>Click here to download/view my latest CV.</p>
+        </div>
+      </div>
+      <div class="preview">
+        <img ngSrc="./images/about/cv-thumbnail.webp" alt="My CV" height="554" width="602" />
+      </div>
+    </a>
+  </div>
+
+  <div class="stuff">
+    <scott-github-widget class="widget"></scott-github-widget>
+    <scott-linkedin-widget class="widget"></scott-linkedin-widget>
+  </div>
+</div>
