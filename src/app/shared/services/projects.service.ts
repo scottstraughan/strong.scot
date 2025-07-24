@@ -28,7 +28,7 @@ export class ProjectsService {
           type: ProjectGraphicType.IMAGE
         }
       ],
-      tags: ['TypeScript', 'Angular', 'Signals', 'Android', 'Java', 'Zuplo', 'API'],
+      tags: ['TypeScript', 'Angular', 'Signals', 'Android', 'Java', 'Zuplo', 'API', 'WebWorkers', 'IndexedDB'],
       urls: [
         { name: 'GitHub', href: 'https://github.com/scottstraughan/saorsail-web'},
         { name: 'saorsail.com', href: 'https://www.saorsail.com'}
@@ -55,7 +55,7 @@ export class ProjectsService {
           type: ProjectGraphicType.IMAGE
         }
       ],
-      tags: ['asdasd'],
+      tags: ['Angular', 'TypeScript', 'HTML5', 'SASS', 'IndexedDB', 'API', 'OpenSSF'],
       urls: [
         { name: 'GitHub', href: 'https://github.com/scottstraughan/openssf-scorecard-dashboard'},
         { name: 'saorsail.com', href: 'https://www.scoredash.xyz'}
@@ -98,7 +98,7 @@ export class ProjectsService {
           type: ProjectGraphicType.IMAGE
         }
       ],
-      tags: ['sycl', 'angular', 'python', 'feed-generation', 'learn', 'playground'],
+      tags: ['SYCL', 'Angular', 'Python', 'JSON Feed 1.0', 'IndexedDB', 'Compiler Playground', 'Novel Infrastructure'],
       urls: [
         { name: 'GitHub', href: 'https://github.com/scottstraughan/sycl.tech-website'},
         { name: 'sycl.tech', href: 'https://www.sycl.tech'}
@@ -120,7 +120,10 @@ export class ProjectsService {
           type: ProjectGraphicType.IMAGE
         }
       ],
-      tags: ['Swift', 'MacOS', 'Apple', 'Radio', 'API']
+      tags: ['Swift', 'MacOS', 'Apple', 'Radio', 'API'],
+      urls: [
+        { name: 'GitHub', href: 'https://github.com/scottstraughan/uradio'},
+      ]
     },
     {
       tag: 'hive-tizen',
@@ -138,7 +141,7 @@ export class ProjectsService {
           type: ProjectGraphicType.IMAGE
         }
       ],
-      tags: ['Tizen', 'Wearable', 'Vector', 'API']
+      tags: ['Tizen', 'Wearable', 'Vector', 'API', 'JavaScript']
     },
     {
       tag: 'sms2pc',
