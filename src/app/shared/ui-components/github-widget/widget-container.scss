@@ -1,0 +1,23 @@
+@use "../../../../scss/common" as *;
+@use "../../../../scss/variables" as *;
+
+:host {
+  @include interactive;
+
+  background-color: var(--color-base-secondary);
+  border-radius: var(--border-radius-normal);
+  color: var(--white-color);
+  display: block;
+  overflow: hidden;
+  text-align: center;
+
+  .icon {
+    background-color: rgba(0, 0, 0, .2);
+    padding: 1rem 0 .5rem 0;
+
+    img {
+      height: auto;
+      width: 70px;
+    }
+  }
+}

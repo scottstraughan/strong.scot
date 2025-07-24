@@ -13,11 +13,11 @@ scott-loading {
   .rant {
     @include interactive;
 
-    display: flex;
     align-items: flex-start;
-    border-radius: 12px;
-    overflow: hidden;
     background-color: var(--white-color);
+    border-radius: var(--border-radius-normal);
+    display: flex;
+    overflow: hidden;
     width: 100%;
 
     .icon-wrapper {
@@ -30,16 +30,16 @@ scott-loading {
 
     &.primary,
     &.secondary {
-      background-color: var(--color-dark-purple);
-      color: var(--white-color);
-      background-size: cover;
-      background-position: center;
       align-items: flex-end;
+      background-color: var(--color-dark-purple);
+      background-position: center;
+      background-size: cover;
+      color: var(--white-color);
 
       .info {
-        padding: 3rem;
         backdrop-filter: none;
-        background: linear-gradient(0deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        padding: 3rem;
 
         @media screen and (min-width: $mobile-breakpoint) {
           padding: 4rem 3rem 3rem 3rem;
@@ -51,8 +51,8 @@ scott-loading {
     &:not(.secondary) {
       @media screen and (min-width: $mobile-breakpoint) {
         img {
-          width: 90px;
           height: 60px;
+          width: 90px;
         }
       }
     }
@@ -60,13 +60,13 @@ scott-loading {
     .icon {
       @include center;
 
-      padding: 0 1rem;
       background-color: #ede8f1;
+      padding: 0 1rem;
 
       .icon-wrapper {
+        height: 62px;
         position: relative;
         width: 90px;
-        height: 62px;
 
         img {
           object-fit: contain;
@@ -88,9 +88,9 @@ scott-loading {
 
       h2 {
         font-size: 1rem;
-        opacity: .5;
         font-weight: normal;
         margin-top: .5rem;
+        opacity: .5;
       }
     }
   }
@@ -115,13 +115,13 @@ scott-loading {
   @include interactive;
 
   background-color: var(--white-color);
-  text-align: center;
+  border-radius: var(--border-radius-normal);
   padding: 2rem 0;
+  text-align: center;
   width: 100%;
-  border-radius: 12px;
 
   img {
-    vertical-align: middle;
     margin-right: .5rem;
+    vertical-align: middle;
   }
 }

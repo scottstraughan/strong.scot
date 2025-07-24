@@ -39,11 +39,11 @@
 
         cursor: pointer;
         padding: 2rem 4rem;
-        transition: .5s all;
+        transition: var(--default-transition-normal);
 
         img {
           opacity: 0;
-          transition: .5s all;
+          transition: var(--default-transition-normal);
           width: 30px !important;
           height: auto;
         }

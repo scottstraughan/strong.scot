@@ -12,7 +12,10 @@ import { NgOptimizedImage } from '@angular/common';
     LoadingAnimationComponent,
     NgOptimizedImage
   ],
-  styleUrl: './github-widget.component.scss'
+  styleUrls: [
+    './widget-container.scss',
+    './github-widget.component.scss'
+  ]
 })
 export class GithubWidgetComponent implements OnInit {
   /**

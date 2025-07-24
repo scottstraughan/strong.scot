@@ -4,22 +4,7 @@
 :host {
   @include interactive;
 
-  display: block;
   background-color: #3c6bb1;
-  color: var(--white-color);
-  text-align: center;
-  border-radius: 12px;
-  overflow: hidden;
-
-  .icon {
-    padding: 1rem 0 .5rem 0;
-    background-color: rgba(0, 0, 0, .2);
-
-    img {
-      width: 70px;
-      height: auto;
-    }
-  }
 
   .title {
     display: flex;
@@ -45,7 +30,7 @@
     .button {
       display: block;
       background-color: rgba(0, 0, 0, .1);
-      border-radius: 12px;
+      border-radius: var(--border-radius-normal);
       padding: 1rem;
 
       &:hover {

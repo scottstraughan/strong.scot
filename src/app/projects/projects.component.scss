@@ -2,48 +2,48 @@
 @use "../../scss/variables" as *;
 
 .project {
-  display: block;
   background-color: var(--color-dark-purple);
-  overflow: hidden;
-  z-index: 1;
   color: var(--white-color);
+  display: block;
+  overflow: hidden;
   position: relative;
+  z-index: 1;
 
   &:not(:first-of-type) {
-    border-radius: 16px 16px 0 0;
+    border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
     margin-top: -16px;
   }
 
   .bg-container {
-    background-color: rgba(0, 0, 0, .8);
     backdrop-filter: blur(40px);
-    transition: .5s all;
+    background-color: rgba(0, 0, 0, .8);
     padding: 2rem 0;
+    transition: var(--default-transition-normal);
 
     @media screen and (min-width: $mobile-breakpoint) {
-      padding: 3rem 0;
       background-color: rgba(0, 0, 0, .6);
+      padding: 3rem 0;
     }
   }
 
   .container-wrapper {
     display: flex;
     flex-direction: column;
-    padding-top: 0;
     padding-bottom: 0;
+    padding-top: 0;
 
     @media screen and (min-width: $mobile-breakpoint) {
       flex-direction: row;
-      padding: 3rem 0 ;
+      padding: 3rem 0;
     }
 
     scott-image-collection {
       @include interactive;
 
-      width: 100%;
+      border-radius: var(--border-radius-normal);
       height: 300px;
-      border-radius: 12px;
       overflow: hidden;
+      width: 100%;
 
       @media screen and (min-width: $mobile-breakpoint) {
         @include center;
@@ -51,20 +51,19 @@
       }
 
       @media screen and (min-width: $mobile-breakpoint) {
-        width: 450px;
         height: 320px;
+        width: 450px;
       }
     }
 
     .about {
-
       flex: 1;
       height: auto;
       margin-top: 1rem;
 
       @media screen and (min-width: $mobile-breakpoint) {
-        padding: 0 3rem;
         margin-top: 0;
+        padding: 0 3rem;
       }
 
       h1 {
@@ -73,17 +72,17 @@
 
       .tags {
         display: flex;
-        list-style: none;
         flex-wrap: wrap;
-        padding: 0;
         gap: .5rem;
+        list-style: none;
+        padding: 0;
 
         li {
-          display: inline-block;
           background-color: var(--hint-color);
-          padding: .5rem 1rem;
-          border-radius: 6px;
+          border-radius: var(--border-radius-small);
+          display: inline-block;
           font-size: .8rem;
+          padding: .5rem 1rem;
         }
       }
 

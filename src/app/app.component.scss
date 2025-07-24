@@ -21,7 +21,7 @@
           position: fixed;
           width: calc(100% - var(--margin) - var(--margin));
           margin: var(--margin);
-          border-radius: 12px;
+          border-radius: var(--border-radius-normal);
           background-color: rgba(39, 18, 54, .9);
           backdrop-filter: blur(20px);
           opacity: 0;
@@ -116,7 +116,7 @@
           }
 
           .menu-item {
-            border-radius: 12px;
+            border-radius: var(--border-radius-normal);
             padding: 2rem 1.6rem;
             width: 100%;
             opacity: .5;

@@ -8,7 +8,10 @@ import { NgOptimizedImage } from '@angular/common';
   imports: [
     NgOptimizedImage
   ],
-  styleUrl: './linkedin-widget.component.scss'
+  styleUrls: [
+    './../github-widget/widget-container.scss',
+    './linkedin-widget.component.scss'
+  ]
 })
 export class LinkedinWidgetComponent {
 

@@ -14,6 +14,7 @@
     textarea,
     button {
       @include interactive;
+
       background-color: var(--white-color);
     }
 
@@ -21,37 +22,37 @@
     input,
     textarea,
     button {
-      width: 100%;
+      border: 0;
+      border-radius: 6px;
       font: inherit;
       padding: 1rem;
-      border-radius: 6px;
-      border: 0;
+      width: 100%;
     }
 
     label {
       display: block;
-      padding: 1rem 0 .5rem 0;
       font-weight: bold;
+      padding: 1rem 0 .5rem 0;
     }
 
     textarea {
       font: inherit;
-      padding: 1rem;
       min-height: 500px;
+      padding: 1rem;
     }
 
     button {
       @include center(true);
 
-      margin-top: 1rem;
-      padding: 1.5rem 0;
       background-color: var(--hint-color);
       color: var(--white-color);
       cursor: pointer;
+      margin-top: 1rem;
+      padding: 1.5rem 0;
 
       &:disabled {
-        opacity: .6;
         cursor: not-allowed;
+        opacity: .6;
       }
 
       scott-loading {
@@ -63,28 +64,28 @@
 
   .sent {
     background-color: var(--hint-color-alt);
+    border-radius: var(--border-radius-normal);
     color: var(--white-color);
     padding: 4rem;
-    border-radius: 12px;
     text-align: center;
 
     img {
-      width: 60px;
       height: auto;
+      width: 60px;
     }
   }
 
   .button.action {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border: 0;
     background-color: rgba(255, 255, 255, .2);
+    border: 0;
     border-radius: 6px;
     color: var(--white-color);
+    display: inline-block;
     font-size: 1rem;
-    margin-top: 1rem;
     font-weight: normal;
-    transition: .2s all;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    transition: var(--default-transition-quick);
 
     &:hover {
       background-color: rgba(255, 255, 255, .3);

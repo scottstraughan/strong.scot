@@ -2,10 +2,10 @@
 @use 'common' as *;
 
 body {
-  margin: 0;
-  font-family: Arial, serif;
   background-color: var(--color-dark-purple);
   color: var(--color-dark-purple);
+  font-family: Arial, serif;
+  margin: 0;
 }
 
 * {
@@ -29,13 +29,13 @@ a {
 }
 
 .container-wrapper {
-  --container-width: 1200px;
-  --container-padding: 1rem;
-
-  max-width: var(--container-width);
-  width: 100%;
   margin: 0 auto;
+  max-width: var(--container-width);
+
+  --container-padding: 1rem;
   padding: var(--container-padding);
+  --container-width: 1200px;
+  width: 100%;
 }
 
 .formatted-content {
@@ -50,9 +50,9 @@ a {
   }
 
   img, video {
-    width: 100%;
-    max-width: 100%;
     height: auto;
+    max-width: 100%;
+    width: 100%;
   }
 
   video {
@@ -61,17 +61,17 @@ a {
 
   code {
     background-color: var(--hint-color-alt);
-    color: var(--white-color);
-    padding: .2rem .3rem;
     border-radius: 4px;
+    color: var(--white-color);
     font-size: .8em;
+    padding: .2rem .3rem;
   }
 
   pre code {
-    display: block;
     background-color: var(--color-dark-purple);
-    color: var(--white-color);
     border-radius: 12px;
+    color: var(--white-color);
+    display: block;
     padding: 1.5rem;
   }
 }
@@ -80,10 +80,10 @@ a {
   @include interactive;
   @include center;
 
-  gap: 1rem;
   background-color: var(--hint-color-alt);
-  color: var(--white-color);
   border-radius: 6px;
+  color: var(--white-color);
+  gap: 1rem;
   overflow: hidden;
   padding: 0 1rem 0 0;
 
@@ -93,14 +93,14 @@ a {
 
   &.icon {
     > div:nth-of-type(1) {
-      padding: 1rem .8rem;
       background-color: rgba(0, 0, 0, .15);
+      padding: 1rem .8rem;
     }
   }
 
   img {
-    width: 20px;
     height: 20px;
     vertical-align: middle;
+    width: 20px;
   }
 }
