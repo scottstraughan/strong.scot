@@ -231,8 +231,23 @@
       }
 
       .left {
-        small {
+        > div {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .copy {
           opacity: .6;
+        }
+
+        .made-with {
+          margin-bottom: 1rem;
+
+          .angular {
+            width: 90px;
+            vertical-align: middle;
+          }
         }
       }
 
