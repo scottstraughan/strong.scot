@@ -78,9 +78,29 @@ a {
 
 .button {
   @include interactive;
+  @include center;
 
+  gap: 1rem;
   background-color: var(--hint-color-alt);
   color: var(--white-color);
-  padding: 1rem 2rem;
   border-radius: 6px;
+  overflow: hidden;
+  padding: 0 1rem 0 0;
+
+  &:not(.icon) {
+    padding: 1rem 2rem;
+  }
+
+  &.icon {
+    > div:nth-of-type(1) {
+      padding: 1rem .8rem;
+      background-color: rgba(0, 0, 0, .15);
+    }
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
 }

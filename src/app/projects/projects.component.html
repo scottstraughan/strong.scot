@@ -14,7 +14,12 @@
 
               <div class="actions">
                 @for (url of project.urls; track url) {
-                  <a class="button" [href]="url.href" target="_blank">Go to {{ url.name }}</a>
+                  <a class="button icon" [href]="url.href" target="_blank">
+                    <div>
+                      <img src="./images/icons/link.svg" alt="Link Icon" />
+                    </div>
+                    <div>Go to {{ url.name }}</div>
+                  </a>
                 }
               </div>
 
