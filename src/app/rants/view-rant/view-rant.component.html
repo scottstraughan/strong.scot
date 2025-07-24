@@ -1,12 +1,19 @@
 @if (rant(); as rant) {
   <article>
-    <header [style.background-image]="'url(' + rant.thumbnail + ')'">
-      <div class="bg-wrapper">
-        <div class="container-wrapper">
-          <h1>{{ rant.title }}</h1>
-          <h2>{{ rant.description }}</h2>
-          <h3>Ranted on {{ rant.date.toDateString() }}.</h3>
+    <header
+        title="Click to reveal thumbnail image"
+        (click)="onToggleThumbnail()"
+        [class.revealed]="revealThumbnail()">
+      <div class="thumbnail">
+        <div>
+          <img [src]="rant.thumbnail" alt="Rant Thubnail Image" />
         </div>
+      </div>
+
+      <div class="container-wrapper">
+        <h1>{{ rant.title }}</h1>
+        <h2>{{ rant.description }}</h2>
+        <h3>Ranted on {{ rant.date.toDateString() }}.</h3>
       </div>
     </header>
 

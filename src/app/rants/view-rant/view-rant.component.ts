@@ -1,4 +1,4 @@
-import { Component, Inject, inject, OnInit, signal, Signal } from '@angular/core';
+import { Component, Inject, inject, OnInit, signal, Signal, WritableSignal } from '@angular/core';
 import { Rant, RantService } from '../../shared/services/rants.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, of, switchMap, tap } from 'rxjs';
@@ -21,6 +21,8 @@ export class ViewRantComponent implements OnInit {
    * The rant.
    */
   readonly rant: Signal<Rant | undefined> = signal(undefined);
+
+  readonly revealThumbnail: WritableSignal<boolean> = signal(false);
 
   private hljs = inject(HighlightJS);
 
@@ -72,5 +74,9 @@ export class ViewRantComponent implements OnInit {
    */
   ngOnInit(): void {
     this.hljs.highlightAll().then();
+  }
+
+  onToggleThumbnail() {
+    this.revealThumbnail.set(!this.revealThumbnail());
   }
 }

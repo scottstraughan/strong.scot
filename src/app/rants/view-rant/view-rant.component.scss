@@ -9,53 +9,111 @@
     flex-direction: column;
 
     header {
-      background-position: center;
-      background-size: cover;
+      display: flex;
       background-color: black;
       text-align: center;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+      color: var(--white-color);
+      padding: 2rem;
+      transition: .2s all;
+      align-items: center;
+      cursor: pointer;
 
       @media screen and (min-width: $mobile-breakpoint) {
         text-align: left;
+        align-items: flex-end;
       }
 
-      .bg-wrapper {
+      .thumbnail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: .4;
+
+        &:hover {
+          opacity: .5;
+        }
+
         display: flex;
-        min-height: 400px;
         align-items: center;
-        color: var(--white-color);
-        background-color: rgba(0, 0, 0, .6);
-        transition: .5s all;
-        backdrop-filter: blur(4px);
+        justify-content: center;
+        transition: .2s all;
 
-        &:not(:hover) {
-          backdrop-filter: none;
+        > div {
+          position: relative;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            height: auto;
+            transition: .2s all;
+            filter: blur(5px);
+          }
+        }
+      }
+
+      /**
+       * Applied when the user has clicked the header to view the header image.
+       */
+      &.revealed {
+        height: auto;
+        display: block;
+        background-color: var(--color-dark-purple);
+
+        .thumbnail {
+          opacity: 1;
+          position: static;
+
+          > div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+              position: static;
+              filter: none;
+              width: 100%;
+            }
+          }
         }
 
-        @media screen and (min-width: $mobile-breakpoint) {
-          align-items: flex-end;
-          padding-bottom: 2rem;
+        .container-wrapper {
+          display: none;
         }
       }
 
-      h1, h2, h3 {
-        margin: 0;
-      }
+      .container-wrapper {
+        position: relative;
+        z-index: 1;
 
-      h1 {
-        font-size: 2rem;
-      }
+        h1, h2, h3 {
+          margin: 0;
+        }
 
-      h2 {
-        padding-top: .4rem;
-        font-weight: normal;
-        opacity: .7;
-      }
+        h1 {
+          font-size: 2rem;
+        }
 
-      h3 {
-        margin-top: 2rem;
-        font-weight: normal;
-        font-size: 1rem;
-        opacity: .5;
+        h2 {
+          padding-top: .4rem;
+          font-weight: normal;
+          opacity: .7;
+        }
+
+        h3 {
+          margin-top: 2rem;
+          font-weight: normal;
+          font-size: 1rem;
+          opacity: .5;
+        }
       }
     }
 
