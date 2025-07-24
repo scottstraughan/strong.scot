@@ -73,6 +73,51 @@
     h1 {
       margin-top: 0;
     }
+
+    h2 {
+      margin-top: 2rem;
+      opacity: .8;
+    }
+  }
+
+  .skills {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    padding: 0;
+
+    > li {
+      @include interactive;
+
+      background-color: rgba(255, 255, 255, .4);
+      padding: 1rem;
+      border-radius: 6px;
+
+      span {
+        font-weight: bold;
+      }
+
+      ul {
+        margin-top: .5rem;
+        list-style: none;
+        padding: 0;
+        flex-direction: column;
+        gap: .2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: .2rem;
+
+        li {
+          padding: .4rem 1rem;
+          background-color: var(--hint-color-alt);
+          border-radius: 4px;
+          opacity: .8;
+          font-size: .8rem;
+          color: white;
+        }
+      }
+    }
   }
 
   .stuff {
@@ -104,64 +149,48 @@
   .cv {
     --cv-border: 12px;
 
-    display: flex;
-    background-color: var(--hint-color);
-    border-radius: var(--cv-border);
+    display: block;
+    background-color: var(--hint-color-alt);
     color: var(--white-color);
-    gap: 2rem;
-    margin-top: 4rem;
-    transition: .2s all;
+    border-radius: 12px;
+    text-align: center;
+    transition: .3s all;
 
     &:hover {
-      background-color: var(--hint-color-alt);
-    }
-
-    .icon {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      background-color: rgba(0, 0, 0, .2);
-      padding: 0 1rem;
-      overflow: hidden;
-      border-radius: var(--cv-border) 0 0 var(--cv-border);
-
-      img {
-        width: 30px;
-        height: 30px;
-      }
-    }
-
-    .details {
-      padding: 3rem 0;
-      flex: 1;
-
-      h1 {
-        margin: 0;
-        font-size: 1.4rem;
-      }
-
-      p {
-        margin: .5rem 0 0 0;
-        opacity: .6;
-      }
+      background-color: #d1199e;
     }
 
     .preview {
-      position: relative;
-      width: 300px;
+      padding: 2rem 2rem 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       img {
-        position: absolute;
-        bottom: 0;
-        right: 2rem;
-        width: 200px;
+        display: flex;
+        width: 100%;
         height: auto;
-        transition: .2s all;
+        max-width: 50%;
+
+        @media screen and (min-width: $mobile-breakpoint) {
+          max-width: none;
+        }
       }
     }
 
-    &:hover .preview img {
-      width: 210px;
+    .text {
+      background-color: rgba(0, 0, 0, .1);
+      padding: 2rem;
+
+      h1 {
+        font-size: 1.3rem;
+        margin: 0;
+      }
+
+      p {
+        margin: .4rem 0 0 0;
+        opacity: .6;
+      }
     }
   }
 }
