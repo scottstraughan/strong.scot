@@ -26,7 +26,7 @@
       }
 
       .thumbnail {
-        background-position: center bottom;
+        background-position: center 50%;
         background-size: cover;
         height: 100%;
         width: 100%;
@@ -34,6 +34,20 @@
         top: 0;
         left: 0;
         opacity: .6;
+        animation: float-up 30s linear infinite;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes float-up {
+        0% {
+          background-position-y: 50%;
+        }
+        50% {
+          background-position-y: 70%;
+        }
+        100% {
+          background-position-y: 50%;
+        }
       }
 
       .container-wrapper {
