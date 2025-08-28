@@ -58,7 +58,7 @@ export class ProjectsService {
       tags: ['Angular', 'TypeScript', 'HTML5', 'SASS', 'IndexedDB', 'API', 'OpenSSF'],
       urls: [
         { name: 'GitHub', href: 'https://github.com/scottstraughan/openssf-scorecard-dashboard'},
-        { name: 'scoredash.com', href: 'https://www.scoredash.xyz'}
+        { name: 'scoredash.xyz', href: 'https://www.scoredash.xyz'}
       ]
     },
     {
