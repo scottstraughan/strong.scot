@@ -28,7 +28,7 @@ export class ProjectsService {
           type: ProjectGraphicType.IMAGE
         }
       ],
-      tags: ['TypeScript', 'Angular', 'Signals', 'Android', 'Java', 'Zuplo', 'API', 'WebWorkers', 'IndexedDB'],
+      tags: ['TypeScript', 'Angular', 'Signals', 'Android', 'Java', 'Zuplo', 'API', 'WebWorkers', 'IndexedDB', 'Node.js', 'Express', 'OpenAI'],
       urls: [
         { name: 'GitHub', href: 'https://github.com/scottstraughan/saorsail-web'},
         { name: 'saorsail.com', href: 'https://www.saorsail.com'}
@@ -58,19 +58,13 @@ export class ProjectsService {
       tags: ['Angular', 'TypeScript', 'HTML5', 'SASS', 'IndexedDB', 'API', 'OpenSSF'],
       urls: [
         { name: 'GitHub', href: 'https://github.com/scottstraughan/openssf-scorecard-dashboard'},
-        { name: 'saorsail.com', href: 'https://www.scoredash.xyz'}
+        { name: 'scoredash.com', href: 'https://www.scoredash.xyz'}
       ]
     },
     {
       tag: 'sycl.tech',
       name: 'SYCL.tech',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere consectetur ex, ac ' +
-        'convallis orci. Nulla molestie lectus eu ante finibus finibus vitae eget elit. Duis et tellus felis. ' +
-        'Donec fermentum consectetur erat sed semper. Aliquam suscipit condimentum odio vel pellentesque. Fusce ' +
-        'rhoncus tellus eget nibh laoreet scelerisque. Donec ac quam magna. Donec consectetur auctor augue, ' +
-        'quis dignissim justo aliquam eu. Fusce interdum, sapien ut dignissim congue, lacus lorem pharetra ante, ' +
-        'et condimentum orci leo vitae orci. Aenean et ligula et ante faucibus venenatis et quis nisi. Proin vel ' +
-        'sollicitudin nunc. Quisque bibendum velit quis quam euismod tristique.',
+      description: 'sycl.tech is a modern web platform that makes learning and exploring SYCL simple, interactive, and accessible. Built with Angular, it offers a clean, responsive interface where users can dive into tutorials, experiment with code in a live playground, and stay up to date with the latest SYCL projects, news, and videos. Whether you’re a beginner curious about parallel programming or an experienced developer seeking resources, Sycl.tech brings knowledge, experimentation, and discovery together in one open, easy-to-use hub.',
       graphics: [
         {
           url: './images/projects/sycl.tech/home.webp',
