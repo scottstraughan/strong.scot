@@ -8,6 +8,34 @@ import { Observable, of } from 'rxjs';
 export class ProjectsService {
   private projects: Project[] = [
     {
+      tag: 'bob',
+      name: 'Bob',
+      description: 'Bob is a versatile AI assistant that lets you chat, ask questions, and track conversation history with ease. Available as both an Angular component (ngx-bob) and a backend server (bob-brain), it provides a seamless, interactive experience across web applications. Built with Angular and ExpressJS, Bob features a clean, responsive interface for smooth messaging and history tracking, while the brain connects to AI providers like OpenAI and Claude to generate intelligent responses. Users can maintain conversations, query multiple AI models, and integrate Bob directly into their apps—all without complex setup. With its focus on flexibility, interactivity, and AI-powered insights, Bob delivers a polished, developer-friendly conversational experience.',
+      graphics: [
+        {
+          url: './images/projects/bob/bob-chat-ui.webp',
+          title: 'Bob Chat UI',
+          type: ProjectGraphicType.IMAGE
+        },
+        {
+          url: './images/projects/bob/bob-widget.webp',
+          title: 'Bob Widget',
+          type: ProjectGraphicType.IMAGE
+        },
+        {
+          url: './images/projects/bob/bob.mp4',
+          title: 'Video of Bob',
+          type: ProjectGraphicType.VIDEO
+        }
+      ],
+      tags: ['TypeScript', 'Angular', 'Node', 'ExpressJS', 'OpenAI/Claude/other', 'Embedding Generation', 'Vector Search'],
+      urls: [
+        { name: 'GitHub (ngx-bob)', href: 'https://github.com/scottstraughan/ngx-bob'},
+        { name: 'GitHub (bob-brain)', href: 'https://github.com/scottstraughan/bob-brain'},
+        { name: 'Try Bob', href: 'https://www.saorsail.com'}
+      ]
+    },
+    {
       tag: 'saorsail',
       name: 'Saorsail',
       description: 'Saorsail is a modern app that lets you browse, download, and install apps from the F-Droid repository with ease. Available as both a web app and an Android app, it offers a consistent and intuitive experience across platforms. Built with Angular and written in TypeScript, Saorsail features a sleek, responsive UI designed for smooth navigation and performance. Users can explore the full F-Droid database, view app details, and install or download APKs directly to their devices—all without leaving the app. With its focus on simplicity, privacy, and open-source access, Saorsail is a streamlined gateway to the F-Droid ecosystem.',
