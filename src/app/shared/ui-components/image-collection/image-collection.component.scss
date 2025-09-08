@@ -16,14 +16,23 @@
     height: 100%;
     position: relative;
 
-    img,
-    video {
-      position: absolute;
-      z-index: 0;
-      width: 100%;
-      min-height: 100%;
-      height: auto;
-    }
+   .container {
+     position: absolute;
+     z-index: 0;
+     height: 100%;
+     width: 100%;
+     top: 0;
+     left: 0;
+
+     img,
+     video {
+       position: absolute;
+       right: 0;
+       bottom: 0;
+       height: 100%;
+       width: auto;
+     }
+   }
 
     .nav {
       display: flex;
