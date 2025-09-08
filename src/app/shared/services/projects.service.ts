@@ -13,6 +13,11 @@ export class ProjectsService {
       description: 'Bob is a versatile AI assistant that lets you chat, ask questions, and track conversation history with ease. Available as both an Angular component (ngx-bob) and a backend server (bob-brain), it provides a seamless, interactive experience across web applications. Built with Angular and ExpressJS, Bob features a clean, responsive interface for smooth messaging and history tracking, while the brain connects to AI providers like OpenAI and Claude to generate intelligent responses. Users can maintain conversations, query multiple AI models, and integrate Bob directly into their apps—all without complex setup. With its focus on flexibility, interactivity, and AI-powered insights, Bob delivers a polished, developer-friendly conversational experience.',
       graphics: [
         {
+          url: './images/projects/bob/bob.mp4',
+          title: 'Video of Bob',
+          type: ProjectGraphicType.VIDEO
+        },
+        {
           url: './images/projects/bob/bob-chat-ui.webp',
           title: 'Bob Chat UI',
           type: ProjectGraphicType.IMAGE
@@ -22,11 +27,6 @@ export class ProjectsService {
           title: 'Bob Widget',
           type: ProjectGraphicType.IMAGE
         },
-        {
-          url: './images/projects/bob/bob.mp4',
-          title: 'Video of Bob',
-          type: ProjectGraphicType.VIDEO
-        }
       ],
       tags: ['TypeScript', 'Angular', 'Node', 'ExpressJS', 'OpenAI/Claude/other', 'Embedding Generation', 'Vector Search'],
       urls: [
