@@ -1,13 +1,15 @@
 @if (current(); as image) {
   <div class="screenshot" [title]="image.title">
 
-    @if (image.url.includes('mp4')) {
-      <video autoplay [muted]="'muted'" muted="muted" loop>
-        <source [src]="image.url" type="video/mp4">
-      </video>
-    } @else {
-      <img [src]="image.url" alt="{{ image.title }}" />
-    }
+    <div class="container">
+      @if (image.url.includes('mp4')) {
+        <video autoplay [muted]="'muted'" muted="muted" loop>
+          <source [src]="image.url" type="video/mp4">
+        </video>
+      } @else {
+        <img [src]="image.url" alt="{{ image.title }}" />
+      }
+    </div>
 
     <!-- Previous / Next navigator -->
     @if (images().length > 1) {
