@@ -97,16 +97,16 @@ scott-loading {
 
   @media screen and (min-width: $mobile-breakpoint) {
     .rant {
-      flex: 1 1 calc(50% - .5rem);
+      flex: 0 0 calc(50% - .5rem);
     }
 
     .rant.primary {
-      flex: 1 1 calc(60% - .5rem);
+      flex: 0 0 calc(60% - .5rem);
       height: 500px;
     }
 
     .rant.secondary {
-      flex: 1 1 calc(40% - .5rem);
+      flex: 0 0 calc(40% - .5rem);
     }
   }
 }
