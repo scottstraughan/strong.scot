@@ -6,10 +6,22 @@ import { JsonFeedService } from './json-feed.service';
   providedIn: 'root'
 })
 export class RantService extends JsonFeedService {
-  static BASE_FEED_PATH = 'https://feed.strong.scot'
+  static BASE_FEED_PATH = '/feed/rants/'
 
   constructor() {
-    super(RantService.BASE_FEED_PATH + '/rants/');
+    super(RantService.BASE_FEED_PATH);
+  }
+
+  static normalizeAssetUrl(value: string | undefined): string | undefined {
+    if (!value) {
+      return undefined;
+    }
+
+    if (value.startsWith('http') || value.startsWith('//') || value.startsWith('/')) {
+      return value;
+    }
+
+    return '/' + value;
   }
 
   getRants(): Observable<Rant[]> {
@@ -52,8 +64,8 @@ export class RantService extends JsonFeedService {
       title: feedItem['title'],
       description: feedItem['_description'],
       url: feedItem['external_url'],
-      thumbnail: RantService.BASE_FEED_PATH + feedItem['_thumbnail'],
-      icon: RantService.BASE_FEED_PATH + feedItem['_icon'],
+      thumbnail: RantService.normalizeAssetUrl(feedItem['_thumbnail']),
+      icon: RantService.normalizeAssetUrl(feedItem['_icon']),
       body: feedItem['_content'] ?? undefined,
       date: new Date(feedItem['_date'])
     }
