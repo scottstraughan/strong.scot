@@ -64,6 +64,11 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
+      - name: Copy feed assets into app
+        run: |
+          mkdir -p ./src/public/feed/rants
+          cp -R ./feed/static ./src/public/feed/
+          cp -R ./feed/build/rants/* ./src/public/feed/rants/
       - name: Build
         run: npm run ng run strong.scot:build:production
       - name: Copy generated feed into site
