@@ -65,7 +65,7 @@ jobs:
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
       - name: Build
-        run: npm run ng run strong.scot:prerender -- --configuration production
+        run: npm run ng run strong.scot:prerender:production
       - name: Copy generated feed into site
         run: |
           mkdir -p ./dist/strong.scot/browser/feed/rants
