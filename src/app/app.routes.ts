@@ -24,12 +24,13 @@ export const routes: Routes = [
     component: ProjectsComponent
   },
   {
-    path: 'rants',
-    component: RantsComponent
-  },
-  {
     path: 'rants/:tag',
     component: ViewRantComponent
+  },
+  {
+    path: 'rants',
+    pathMatch: 'full',
+    component: RantsComponent
   },
   {
     path: '**',
