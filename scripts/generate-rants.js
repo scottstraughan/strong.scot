@@ -2,7 +2,8 @@
 
 const fs = require('fs/promises');
 const path = require('path');
-const { marked } = require('marked');
+// `marked` is ESM-only in newer versions. Import it dynamically inside
+// the async `main()` so the script works in CommonJS/CI environments.
 
 const ROOT = path.resolve(__dirname, '..');
 const SOURCE_ROOT = path.join(ROOT, 'rants');
@@ -61,6 +62,7 @@ async function ensureEmptyDir(dir) {
 }
 
 async function main() {
+  const { marked } = await import('marked');
   await ensureEmptyDir(PUBLIC_RANTS_DIR);
   await ensureEmptyDir(PUBLIC_STATIC_IMAGES_DIR);
 
