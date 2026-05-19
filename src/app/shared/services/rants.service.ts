@@ -6,7 +6,7 @@ import { JsonFeedService } from './json-feed.service';
   providedIn: 'root'
 })
 export class RantService extends JsonFeedService {
-  static BASE_FEED_PATH = '/feed/rants/'
+  static BASE_FEED_PATH = '/rants/'
 
   constructor() {
     super(RantService.BASE_FEED_PATH);
@@ -58,9 +58,11 @@ export class RantService extends JsonFeedService {
   convertFeedItem<T>(
     feedItem: any
   ): T {
+    const tag = feedItem['_tag'] ?? feedItem['tag'] ?? feedItem['id'];
+
     return <T> {
       id: feedItem['id'],
-      tag: feedItem['_tag'],
+      tag,
       title: feedItem['title'],
       description: feedItem['_description'],
       url: feedItem['external_url'],

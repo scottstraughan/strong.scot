@@ -14,53 +14,12 @@ permissions:
 
 env:
   SITE_URL: https://www.strong.scot/
-  FEED_BASE_PATH: /feed/rants/
 
 jobs:
-  generate:
-    name: Generate Feed and Routes
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
-      - name: Set up Python 3.11
-        uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d
-        with:
-          python-version: '3.11'
-      - name: Install Feed Dependencies
-        run: pip install -r feed/requirements.txt --no-deps
-        continue-on-error: true
-      - name: Generate Feed
-        run: python feed/feed.py
-        continue-on-error: true
-      - name: Generate Routes (from markdown if feed generation failed)
-        run: |
-          echo "/rants" > routes.txt
-          ls feed/content/rants/ | sed 's/\.md$//' | sort -r | awk '{print "/rants/" $0}' >> routes.txt
-      - name: Upload routes artifact
-        uses: actions/upload-artifact@0b2256b8c012f0828dc542b3febcab082c67f72b
-        with:
-          name: routes
-          path: routes.txt
-      - name: Upload feed artifact (if exists)
-        uses: actions/upload-artifact@0b2256b8c012f0828dc542b3febcab082c67f72b
-        with:
-          name: feed-build
-          path: feed/build
-        continue-on-error: true
-
   build:
-    needs: generate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
-      - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16
-        with:
-          name: routes
-          merge-multiple: true
-      - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16
-        with:
-          name: feed-build
-          path: feed/build
       - name: Setup Node.js 22
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
         with:
@@ -68,19 +27,10 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
-      - name: Copy feed assets into app
-        run: |
-          mkdir -p ./src/public/feed/rants
-          cp -R ./feed/static ./src/public/feed/
-          cp -R ./feed/build/rants/* ./src/public/feed/rants/
+      - name: Generate Rants and Routes
+        run: npm run build:rants
       - name: Build
         run: npm run ng run strong.scot:build:production
-      - name: Copy generated feed into site
-        run: |
-          mkdir -p ./dist/strong.scot/browser/feed/rants
-          cp -R ./feed/build/rants/* ./dist/strong.scot/browser/feed/rants/
-          cp feed/index.html ./dist/strong.scot/browser/feed/index.html
-          cp -R feed/static ./dist/strong.scot/browser/feed/static
       - name: Create 404
         run: cp ./dist/strong.scot/browser/index.html ./dist/strong.scot/browser/404.html
       - name: Upload to GitHub Artifacts
