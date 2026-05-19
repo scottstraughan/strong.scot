@@ -5,7 +5,7 @@
 <div class="rants container-wrapper">
   @for (rant of visibleRants(); track rant.tag) {
     <a class="rant"
-       href="rants/{{ rant.tag }}"
+       href="/rants/{{ rant.tag }}"
        [class.primary]="$index == 0" [class.secondary]="$index == 1"
        [style.background-image]="$index < 2 ? 'url(' + rant.thumbnail + ')' : 'none'">
 
