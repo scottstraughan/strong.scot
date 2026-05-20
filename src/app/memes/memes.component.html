@@ -1,0 +1,9 @@
+<div class="memes-grid">
+  <div class="memes-column" *ngFor="let column of columns">
+    <article class="meme-card" *ngFor="let meme of column">
+      <a class="meme-link" [href]="meme.src" target="_blank" rel="noopener noreferrer">
+        <img [src]="meme.src" [alt]="meme.alt" />
+      </a>
+    </article>
+  </div>
+</div>
