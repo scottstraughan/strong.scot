@@ -141,9 +141,21 @@ async function main() {
   };
 
   await fs.writeFile(path.join(PUBLIC_RANTS_DIR, 'feed.json'), JSON.stringify(feedJson, null, 2), 'utf8');
-  await fs.writeFile(path.join(ROOT, 'routes.txt'), routes.join('\n') + '\n', 'utf8');
 
-  console.log(`Built ${items.length} rants and wrote ${routes.length} routes.`);
+  // Read existing routes.txt and merge, deduplicating entries
+  const routesTxtPath = path.join(ROOT, 'routes.txt');
+  let existingRoutes = [];
+  try {
+    const existing = await fs.readFile(routesTxtPath, 'utf8');
+    existingRoutes = existing.split('\n').filter(Boolean);
+  } catch {
+    // File doesn't exist yet, start fresh
+  }
+
+  const mergedRoutes = [...new Set([...existingRoutes, ...routes])];
+  await fs.writeFile(routesTxtPath, mergedRoutes.join('\n') + '\n', 'utf8');
+
+  console.log(`Built ${items.length} rants and wrote ${mergedRoutes.length} routes.`);
 }
 
 main().catch((error) => {
