@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "clean": "rm -rf dist src/public/rants src/public/static",
+    "clean": "rm -rf dist src/public/rants src/public/static src/public/images/memes/memes.json",
     "generate:rants": "node ./scripts/generate-rants.js",
     "generate:memes": "node ./scripts/generate-memes.js",
     "generate": "npm run generate:rants && npm run generate:memes",

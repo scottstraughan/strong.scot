@@ -10,3 +10,4 @@ routes.txt
 # Build crap
 src/public/rants/
 src/public/static/images
+src/public/images/memes/memes.json
