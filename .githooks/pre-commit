@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "Running pre-commit hook: npm run clean..."
+cd "$(git rev-parse --show-toplevel)" && npm run clean
