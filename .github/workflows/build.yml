@@ -27,8 +27,6 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
-      - name: Generate Rants and Routes
-        run: npm run build:rants
       - name: Build
         run: npm run ng run strong.scot:build:production
       - name: Create 404
