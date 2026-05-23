@@ -3,3 +3,5 @@
 /about
 /contact
 /projects
+/me
+/me/memes

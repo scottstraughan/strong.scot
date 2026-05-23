@@ -6,3 +6,7 @@ node_modules
 dist
 .vscode
 routes.txt
+
+# Build crap
+src/public/rants/
+src/public/static/images

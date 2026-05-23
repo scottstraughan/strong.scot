@@ -2,9 +2,9 @@ import { Routes } from '@angular/router';
 import { RantsComponent } from './rants/rants.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
-import { AboutComponent } from './about/about.component';
+import { MeComponent } from './me/me.component';
 import { ViewRantComponent } from './rants/view-rant/view-rant.component';
-import { MemesComponent } from './memes/memes.component';
+import { MemesComponent } from './me/memes/memes.component';
 
 export const routes: Routes = [
   {
@@ -13,8 +13,16 @@ export const routes: Routes = [
     redirectTo: 'rants'
   },
   {
+    path: 'me',
+    component: MeComponent
+  },
+  {
+    path: 'me/memes',
+    component: MemesComponent
+  },
+  {
     path: 'about',
-    component: AboutComponent
+    component: MeComponent
   },
   {
     path: 'contact',
@@ -32,10 +40,6 @@ export const routes: Routes = [
     path: 'rants',
     pathMatch: 'full',
     component: RantsComponent
-  },
-  {
-    path: 'memes',
-    component: MemesComponent
   },
   {
     path: '**',
