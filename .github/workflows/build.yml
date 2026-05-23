@@ -28,7 +28,7 @@ jobs:
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
       - name: Build
-        run: npm run ng run strong.scot:build:production
+        run: npm run build
       - name: Create 404
         run: cp ./dist/strong.scot/browser/index.html ./dist/strong.scot/browser/404.html
       - name: Upload to GitHub Artifacts
