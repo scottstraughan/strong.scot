@@ -4,9 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "build:rants": "node ./scripts/generate-rants.js",
-    "preview": "npm run build:rants && npm run ng -- run strong.scot:build:production && npx http-server dist/strong.scot/browser",
+    "clean": "rm -rf dist src/public/rants src/public/static",
+    "generate:rants": "node ./scripts/generate-rants.js",
+    "generate:memes": "node ./scripts/generate-memes.js",
+    "generate": "npm run generate:rants && npm run generate:memes",
+    "build": "npm run clean && npm run generate && ng build",
+    "preview": "npm run clean && npm run generate && npm run ng -- run strong.scot:build:production && npx http-server dist/strong.scot/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:strong.scot": "node dist/strong.scot/server/server.mjs"

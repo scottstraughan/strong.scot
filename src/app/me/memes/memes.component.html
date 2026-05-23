@@ -1,9 +1,13 @@
 <div class="memes-grid">
-  <div class="memes-column" *ngFor="let column of columns">
-    <article class="meme-card" *ngFor="let meme of column">
-      <a class="meme-link" [href]="meme.src" target="_blank" rel="noopener noreferrer">
-        <img [src]="meme.src" [alt]="meme.alt" />
-      </a>
-    </article>
-  </div>
+  @for (column of columns(); track $index) {
+    <div class="memes-column">
+      @for (meme of column; track meme) {
+        <article class="meme-card">
+          <a class="meme-link" [href]="meme" target="_blank" rel="noopener noreferrer">
+            <img [src]="meme" alt="MEME!!" />
+          </a>
+        </article>
+      }
+    </div>
+  }
 </div>
