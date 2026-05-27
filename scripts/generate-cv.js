@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const puppeteer = require('puppeteer');
 const path = require('path');
 const fs = require('fs');
 
@@ -9,6 +8,7 @@ const HTML_FILE = path.join(CV_DIR, 'index.html');
 const OUTPUT_PDF = path.join(CV_DIR, '..', 'cv.pdf');
 
 async function main() {
+  const { default: puppeteer } = await import('puppeteer');
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
