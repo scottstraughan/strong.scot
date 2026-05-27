@@ -7,8 +7,9 @@
     "clean": "rm -rf dist src/public/rants src/public/static src/public/images/memes/memes.json",
     "generate:rants": "node ./scripts/generate-rants.js",
     "generate:memes": "node ./scripts/generate-memes.js",
+    "generate:cv": "node ./scripts/generate-cv.js",
     "generate": "npm run generate:rants && npm run generate:memes",
-    "build": "npm run clean && npm run generate && ng build",
+    "build": "npm run clean && npm run generate && npm run generate:cv && ng build",
     "preview": "npm run clean && npm run generate && npm run ng -- run strong.scot:build:production && npx http-server dist/strong.scot/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -49,6 +50,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "marked": "^18.0.4",
+    "puppeteer": "^25.1.0",
+    "sharp": "^0.34.5",
     "typescript": "~5.6.2"
   }
 }

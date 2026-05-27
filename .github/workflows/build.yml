@@ -27,6 +27,15 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
+      - name: Install Chromium System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libnss3 libatk-bridge2.0-0 libdrm2 libxkbcommon0 libgbm1 \
+            libxshmfence1 libxcomposite1 libxdamage1 libxrandr2 \
+            libpango-1.0-0 libcairo2 libasound2
+      - name: Generate CV PDF
+        run: npm run generate:cv
       - name: Build
         run: npm run build
       - name: Create 404
