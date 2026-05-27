@@ -33,7 +33,7 @@ jobs:
           sudo apt-get install -y \
             libnss3 libatk-bridge2.0-0 libdrm2 libxkbcommon0 libgbm1 \
             libxshmfence1 libxcomposite1 libxdamage1 libxrandr2 \
-            libpango-1.0-0 libcairo2 libasound2
+            libpango-1.0-0 libcairo2
       - name: Generate CV PDF
         run: npm run generate:cv
       - name: Build
