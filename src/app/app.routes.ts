@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MeComponent } from './me/me.component';
 import { ViewRantComponent } from './rants/view-rant/view-rant.component';
 import { MemesComponent } from './me/memes/memes.component';
+import { GramComponent } from './gram/gram.component';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,7 @@ export const routes: Routes = [
     path: 'me/memes',
     component: MemesComponent
   },
+
   {
     path: 'about',
     component: MeComponent
@@ -41,6 +43,7 @@ export const routes: Routes = [
     pathMatch: 'full',
     component: RantsComponent
   },
+
   {
     path: '**',
     redirectTo: 'rants'

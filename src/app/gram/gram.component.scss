@@ -1,0 +1,129 @@
+@use "../../scss/common" as *;
+@use "../../scss/variables" as *;
+
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 9999999999999;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: 90vh;
+    background-color: white;
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+    text-align: center;
+    
+    
+    header {
+        background-color: var(--color-base-secondary);
+        color: var(--white-color);
+        display: flex;
+
+        > div {
+            padding: 1.5rem;
+
+            img {
+                max-width: 40px;
+                opacity: .9;
+            }
+        }
+
+        nav {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+            color: var(--white-color);
+            padding-right: 1rem;
+
+            svg {
+                max-width: 30px;
+                opacity: .9;
+            }
+
+            > div {
+                display: inline-flex;
+                padding: 1rem;
+                opacity: .5;
+                cursor: pointer;
+                transition: var(--default-transition-normal);
+
+
+                &.selected,
+                &:hover {
+                    opacity: 1;
+                    color: var(--color-base-tertiary);
+                }
+            }
+        }
+    }
+
+
+    .content {
+        overflow: auto;
+        height: 100%;
+        flex: 1;
+    }
+
+    .gram-grid {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 16px;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 16px;
+
+        .gram-column {
+            flex: 0 0 calc(50% - 12px);
+            width: calc(50% - 12px);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .gram-item {
+            border-radius: 8px;
+            background-color: var(--color-base-primary);
+            overflow: hidden;
+        }
+
+        .gram-item a {
+            display: block;
+            transition: transform 200ms ease, box-shadow 200ms ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .gram-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gram-item-title {
+            line-height: normal;
+            padding: .5rem;
+            font-size: .85rem;
+        }
+    }
+
+    .empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+}

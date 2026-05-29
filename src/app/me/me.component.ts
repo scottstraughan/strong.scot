@@ -4,6 +4,7 @@ import { LinkedinWidgetComponent } from '../shared/ui-components/linkedin-widget
 import { Meta, Title } from '@angular/platform-browser';
 import { AppComponent } from '../app.component';
 import { NgOptimizedImage } from '@angular/common';
+import { GramService } from '../shared/services/gram.service';
 
 @Component({
   selector: 'scott-about',
@@ -42,9 +43,14 @@ export class MeComponent {
    */
   constructor(
     title: Title,
-    meta: Meta
+    meta: Meta,
+    private gramService: GramService,
   ) {
     title.setTitle(`${MeComponent.TITLE} - ${AppComponent.TITLE}`)
     meta.addTag({ 'description': 'Learn about my, who I am, what I am about and download my CV.' });
+  }
+
+  async onPhotosClicked() {
+    await this.gramService.show();
   }
 }

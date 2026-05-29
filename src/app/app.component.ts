@@ -1,6 +1,9 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Component, ElementRef, HostListener, Signal, ViewChild } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
+import { GramComponent } from './gram/gram.component';
+import { GramService } from './shared/services/gram.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'scott-root',
@@ -8,7 +11,8 @@ import { NgOptimizedImage } from '@angular/common';
     RouterOutlet,
     NgOptimizedImage,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    GramComponent,
   ],
   templateUrl: './app.component.html',
   standalone: true,
@@ -24,6 +28,18 @@ export class AppComponent  {
    * If we should show a float menu.
    */
   floating: boolean = false;
+
+  /**
+   * Whether the gram modal is visible.
+   */
+  protected readonly showGramModal: Signal<boolean>;
+
+  constructor(
+    protected router: Router,
+    private gramService: GramService,
+  ) {
+    this.showGramModal = toSignal(this.gramService.visible$, { initialValue: false });
+  }
 
   @ViewChild('mobileMenuInput')
   protected mobileMenuInput: ElementRef | undefined;
@@ -42,5 +58,9 @@ export class AppComponent  {
     }
 
     this.mobileMenuInput.nativeElement.click();
+  }
+
+  async onGramClicked() {
+    await this.gramService.show();
   }
 }
