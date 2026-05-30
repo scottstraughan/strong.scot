@@ -19,25 +19,27 @@
             </div>
         </nav>
     </header>
-    <div class="content">
-        @if (posts().length > 0) {
-            <div class="gram-grid">
-                @for (column of columns(); track $index) {
-                    <div class="gram-column">
-                    @for (post of column; track $index) {
-                        <div class="gram-item">
-                            <a [href]="post.attached.url" target="_blank" rel="noopener noreferrer">
-                                <img [src]="post.attached.url" [alt]="post.title" loading="lazy" />
-                            </a>
-                            <div class="gram-item-title">{{ post.title }}</div>
-                        </div>
-                    }
-                    </div>
+    <div class="content" #content (scroll)="onContentScroll($event)">
+        @for (post of displayedPosts(); track post.date) {
+            <div class="gram-item" [class.is-video]="post.attached.type === 'video'">
+                @if (post.attached.type === 'video') {
+                    <video
+                        [src]="post.attached.url"
+                        muted
+                        loop
+                        playsinline
+                        autoplay
+                    ></video>
+                } @else {
+                    <a [href]="post.attached.url" target="_blank" rel="noopener noreferrer">
+                        <img [src]="post.attached.url" [alt]="post.title" loading="lazy" />
+                    </a>
                 }
+                <div class="gram-item-title">{{ post.title }}</div>
             </div>
         }
-        
-        @if (posts().length === 0) {
+
+        @if (allPosts().length === 0) {
             <div class="empty">
                 <p>No {{mediaMode()}} posts found.</p>
             </div>
