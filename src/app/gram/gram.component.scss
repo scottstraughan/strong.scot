@@ -75,44 +75,44 @@
     padding: 1rem;
   }
 
-  .gram-item {
-    border-radius: 8px;
-    background-color: var(--color-base-tertiary);
-    color: var(--white-color);
-    overflow: hidden;
-    margin-bottom: 0.5rem;
-  }
-
   .gram-item-wrapper {
     background-color: var(--color-base-secondary);
     border-radius: 8px;
     min-height: 200px;
   }
 
-  .gram-item a {
-    display: block;
-    transition:
-      transform 200ms ease,
-      box-shadow 200ms ease;
-    border-radius: 12px;
+  .gram-item {
+    border-radius: 8px;
+    background-color: var(--color-base-tertiary);
+    color: var(--white-color);
     overflow: hidden;
-  }
+    margin-bottom: 0.5rem;
 
-  .gram-item video,
-  .gram-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+    a {
+      display: block;
+      transition:
+        transform 200ms ease,
+        box-shadow 200ms ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
 
-  .gram-item video {
-    cursor: pointer;
-  }
+    video,
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-  .gram-item-title {
-    line-height: normal;
-    padding: 0.5rem;
-    font-size: 0.85rem;
+    video {
+      cursor: pointer;
+    }
+
+    &-title {
+      line-height: normal;
+      padding: 0.5rem;
+      font-size: 0.85rem;
+    }
   }
 
   .empty {
