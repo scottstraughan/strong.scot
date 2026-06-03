@@ -77,9 +77,16 @@
 
     .gram-item {
         border-radius: 8px;
-        background-color: var(--color-base-primary);
+        background-color: var(--color-base-tertiary);
+        color: var(--white-color);
         overflow: hidden;
         margin-bottom: .5rem;
+    }
+
+    .gram-item-wrapper {
+        background-color: var(--color-base-secondary);
+        border-radius: 8px;
+        min-height: 200px;
     }
 
     .gram-item a {

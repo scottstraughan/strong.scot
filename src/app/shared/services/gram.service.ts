@@ -33,7 +33,6 @@ export class GramService {
       .pipe(
         map(data => data.posts),
         map(posts => posts.filter(post => {
-          console.log(posts)
           if (mode === 'all') {
             return true;
           } else if (post.attached.type === mode) {

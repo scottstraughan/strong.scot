@@ -11,7 +11,12 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'rants'
+    component: RantsComponent
+  },
+  {
+    path: 'gram',
+    pathMatch: 'full',
+    component: RantsComponent
   },
   {
     path: 'me',
@@ -21,7 +26,6 @@ export const routes: Routes = [
     path: 'me/memes',
     component: MemesComponent
   },
-
   {
     path: 'about',
     component: MeComponent
@@ -43,7 +47,6 @@ export const routes: Routes = [
     pathMatch: 'full',
     component: RantsComponent
   },
-
   {
     path: '**',
     redirectTo: 'rants'

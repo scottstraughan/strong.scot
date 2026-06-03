@@ -20,21 +20,23 @@
         </nav>
     </header>
     <div class="content" #content (scroll)="onContentScroll($event)">
-        @for (post of displayedPosts(); track post.date) {
+        @for (post of displayedPosts(); track $index) {
             <div class="gram-item" [class.is-video]="post.attached.type === 'video'">
-                @if (post.attached.type === 'video') {
-                    <video
-                        [src]="post.attached.url"
-                        muted
-                        loop
-                        playsinline
-                        autoplay
-                    ></video>
-                } @else {
-                    <a [href]="post.attached.url" target="_blank" rel="noopener noreferrer">
-                        <img [src]="post.attached.url" [alt]="post.title" loading="lazy" />
-                    </a>
-                }
+                <div class="gram-item-wrapper">
+                    @if (post.attached.type === 'video') {
+                        <video
+                            [src]="post.attached.url"
+                            muted
+                            loop
+                            playsinline
+                            autoplay
+                        ></video>
+                    } @else {
+                        <a [href]="post.attached.url" target="_blank" rel="noopener noreferrer">
+                            <img [src]="post.attached.url" [alt]="post.title" loading="lazy" />
+                        </a>
+                    }
+                </div>
                 <div class="gram-item-title">{{ post.title }}</div>
             </div>
         }

@@ -77,9 +77,10 @@ export class GramComponent {
   protected toggleMediaMode(targetMode: MediaMode) {
     if (this.mediaMode() == targetMode) {
       this.mediaMode.set('all');
-      return;
+    } else {
+      this.mediaMode.set(targetMode);
     }
 
-    this.mediaMode.set(targetMode);
+    this.contentEl?.nativeElement.scrollTo({ top: 0, behavior: 'instant' });
   }
 }
