@@ -9,10 +9,8 @@ import { Meta, Title } from '@angular/platform-browser';
   selector: 'scott-projects',
   templateUrl: './projects.component.html',
   standalone: true,
-  imports: [
-    ImageCollectionComponent
-  ],
-  styleUrl: './projects.component.scss'
+  imports: [ImageCollectionComponent],
+  styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
   /**
@@ -34,17 +32,20 @@ export class ProjectsComponent {
     meta: Meta,
   ) {
     title.setTitle(`${ProjectsComponent.TITLE} - ${AppComponent.TITLE}`);
-    meta.addTag({ 'description': 'View all my personal projects including Saorsail, scoredash.xyz and more!' });
+    meta.addTag({
+      description:
+        'View all my personal projects including Saorsail, scoredash.xyz and more!',
+    });
 
-    this.projects = toSignal(projectService.getProjects(), { initialValue: [] });
+    this.projects = toSignal(projectService.getProjects(), {
+      initialValue: [],
+    });
   }
 
   /**
    * Get the initial project image.
    */
-  getInitialGraphicForProject(
-    project: Project,
-  ) {
+  getInitialGraphicForProject(project: Project) {
     return this.projectService.getBestInitialGraphicForProject(project);
   }
 }

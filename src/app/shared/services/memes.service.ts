@@ -8,8 +8,8 @@ export class MemesService {
 
   getColumns(columnCount: number = 5): Observable<string[][]> {
     return this.httpClient.get<string[]>('/images/memes/memes.json').pipe(
-      map(files => files.map(meme => `/images/memes/${meme}`)),
-      map(memes => this.createColumns(memes, columnCount)),
+      map((files) => files.map((meme) => `/images/memes/${meme}`)),
+      map((memes) => this.createColumns(memes, columnCount)),
     );
   }
 

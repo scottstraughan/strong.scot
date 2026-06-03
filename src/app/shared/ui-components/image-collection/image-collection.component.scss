@@ -16,23 +16,23 @@
     height: 100%;
     position: relative;
 
-   .container {
-     position: absolute;
-     z-index: 0;
-     height: 100%;
-     width: 100%;
-     top: 0;
-     left: 0;
+    .container {
+      position: absolute;
+      z-index: 0;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
 
-     img,
-     video {
-       position: absolute;
-       right: 0;
-       bottom: 0;
-       height: 100%;
-       width: auto;
-     }
-   }
+      img,
+      video {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: auto;
+      }
+    }
 
     .nav {
       display: flex;
@@ -60,7 +60,7 @@
 
       .next:hover,
       .previous:hover {
-        background-color: rgba(0, 0, 0, .4);
+        background-color: rgba(0, 0, 0, 0.4);
 
         img {
           opacity: 1 !important;
@@ -73,7 +73,7 @@
     }
 
     &:hover .nav img {
-      opacity: .6 !important;
+      opacity: 0.6 !important;
     }
   }
 }

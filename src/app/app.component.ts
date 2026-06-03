@@ -1,5 +1,17 @@
-import { Component, ElementRef, HostListener, Signal, ViewChild } from '@angular/core';
-import { NavigationStart, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Signal,
+  ViewChild,
+} from '@angular/core';
+import {
+  NavigationStart,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { GramComponent } from './gram/gram.component';
 import { GramService } from './shared/services/gram.service';
@@ -17,9 +29,9 @@ import { filter } from 'rxjs';
   ],
   templateUrl: './app.component.html',
   standalone: true,
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent  {
+export class AppComponent {
   /**
    * Title of component
    */
@@ -39,13 +51,15 @@ export class AppComponent  {
     protected router: Router,
     private gramService: GramService,
   ) {
-    this.showGramModal = toSignal(this.gramService.visible$, { initialValue: false });
+    this.showGramModal = toSignal(this.gramService.visible$, {
+      initialValue: false,
+    });
 
     this.router.events
       .pipe(filter((e) => e instanceof NavigationStart))
       .subscribe((event) => {
         const nav = event as NavigationStart;
-        console.log(nav.url)
+        console.log(nav.url);
         if (nav.url.startsWith('/gram')) {
           this.gramService.show();
         }
@@ -58,14 +72,14 @@ export class AppComponent  {
   /**
    * Called when user scrolls.
    */
-  @HostListener("window:scroll")
+  @HostListener('window:scroll')
   onWindowScroll() {
     this.floating = window.scrollY >= 100;
   }
 
   onMenuItemClicked() {
     if (!this.mobileMenuInput) {
-      return
+      return;
     }
 
     this.mobileMenuInput.nativeElement.click();

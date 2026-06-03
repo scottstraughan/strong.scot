@@ -8,14 +8,8 @@ import { NgOptimizedImage } from '@angular/common';
   selector: 'scott-github-widget',
   templateUrl: './github-widget.component.html',
   standalone: true,
-  imports: [
-    LoadingAnimationComponent,
-    NgOptimizedImage
-  ],
-  styleUrls: [
-    './widget-container.scss',
-    './github-widget.component.scss'
-  ]
+  imports: [LoadingAnimationComponent, NgOptimizedImage],
+  styleUrls: ['./widget-container.scss', './github-widget.component.scss'],
 })
 export class GithubWidgetComponent implements OnInit {
   /**
@@ -32,19 +26,18 @@ export class GithubWidgetComponent implements OnInit {
   /**
    * Constructor.
    */
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+  constructor(private httpClient: HttpClient) {}
 
   /**
    * @inheritdoc
    */
   ngOnInit(): void {
-    this.httpClient.get<string>(GithubWidgetComponent.GITHUB_URL)
+    this.httpClient
+      .get<string>(GithubWidgetComponent.GITHUB_URL)
       .pipe(
-        tap(bio => this.bio.set(bio)),
-        take(1)
+        tap((bio) => this.bio.set(bio)),
+        take(1),
       )
-      .subscribe()
+      .subscribe();
   }
 }

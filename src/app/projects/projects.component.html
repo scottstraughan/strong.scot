@@ -1,10 +1,17 @@
-<div class="projects ">
+<div class="projects">
   @for (project of projects(); track project.name) {
-    <div class="project" [style.background-image]="'url(' + getInitialGraphicForProject(project)?.url + ')'">
+    <div
+      class="project"
+      [style.background-image]="
+        'url(' + getInitialGraphicForProject(project)?.url + ')'
+      "
+    >
       <div class="bg-container">
         <div class="container-wrapper">
           <div class="screenshot">
-            <scott-image-collection [images]="project.graphics"></scott-image-collection>
+            <scott-image-collection
+              [images]="project.graphics"
+            ></scott-image-collection>
           </div>
 
           <div class="about">

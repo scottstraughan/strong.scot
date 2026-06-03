@@ -1,4 +1,4 @@
-@use '../../../../scss/common' as *;
+@use "../../../../scss/common" as *;
 
 :host {
   --loading-icon-size: 70px;
@@ -33,7 +33,7 @@
 
   @keyframes l24 {
     100% {
-      transform: rotate(1turn)
+      transform: rotate(1turn);
     }
   }
 }

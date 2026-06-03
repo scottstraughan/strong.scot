@@ -11,44 +11,44 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: RantsComponent
+    component: RantsComponent,
   },
   {
     path: 'gram',
     pathMatch: 'full',
-    component: RantsComponent
+    component: RantsComponent,
   },
   {
     path: 'me',
-    component: MeComponent
+    component: MeComponent,
   },
   {
     path: 'me/memes',
-    component: MemesComponent
+    component: MemesComponent,
   },
   {
     path: 'about',
-    component: MeComponent
+    component: MeComponent,
   },
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
   },
   {
     path: 'projects',
-    component: ProjectsComponent
+    component: ProjectsComponent,
   },
   {
     path: 'rants/:tag',
-    component: ViewRantComponent
+    component: ViewRantComponent,
   },
   {
     path: 'rants',
     pathMatch: 'full',
-    component: RantsComponent
+    component: RantsComponent,
   },
   {
     path: '**',
-    redirectTo: 'rants'
-  }
+    redirectTo: 'rants',
+  },
 ];

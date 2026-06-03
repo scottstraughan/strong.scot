@@ -8,9 +8,8 @@ describe('MemesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MemesComponent]
-    })
-    .compileComponents();
+      imports: [MemesComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MemesComponent);
     component = fixture.componentInstance;

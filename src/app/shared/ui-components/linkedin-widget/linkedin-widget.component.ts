@@ -5,14 +5,10 @@ import { NgOptimizedImage } from '@angular/common';
   selector: 'scott-linkedin-widget',
   templateUrl: './linkedin-widget.component.html',
   standalone: true,
-  imports: [
-    NgOptimizedImage
-  ],
+  imports: [NgOptimizedImage],
   styleUrls: [
     './../github-widget/widget-container.scss',
-    './linkedin-widget.component.scss'
-  ]
+    './linkedin-widget.component.scss',
+  ],
 })
-export class LinkedinWidgetComponent {
-
-}
+export class LinkedinWidgetComponent {}

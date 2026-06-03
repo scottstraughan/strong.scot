@@ -16,12 +16,12 @@
 
   .bg-container {
     backdrop-filter: blur(40px);
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 2rem 0;
     transition: var(--default-transition-normal);
 
     @media screen and (min-width: $mobile-breakpoint) {
-      background-color: rgba(0, 0, 0, .6);
+      background-color: rgba(0, 0, 0, 0.6);
       padding: 3rem 0;
     }
   }
@@ -73,7 +73,7 @@
       .tags {
         display: flex;
         flex-wrap: wrap;
-        gap: .5rem;
+        gap: 0.5rem;
         list-style: none;
         padding: 0;
 
@@ -81,15 +81,15 @@
           background-color: var(--hint-color);
           border-radius: var(--border-radius-small);
           display: inline-block;
-          font-size: .8rem;
-          padding: .5rem 1rem;
+          font-size: 0.8rem;
+          padding: 0.5rem 1rem;
         }
       }
 
       .actions {
         display: flex;
         flex-direction: column;
-        gap: .5rem;
+        gap: 0.5rem;
 
         @media screen and (min-width: $mobile-breakpoint) {
           flex-direction: row;

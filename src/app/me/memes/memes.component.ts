@@ -14,8 +14,10 @@ import { MemesService } from '../../shared/services/memes.service';
 })
 export class MemesComponent {
   protected readonly columns: Signal<string[][]>;
- 
+
   constructor(private memesService: MemesService) {
-    this.columns = toSignal(this.memesService.getColumns(5), { initialValue: [] });
+    this.columns = toSignal(this.memesService.getColumns(5), {
+      initialValue: [],
+    });
   }
 }

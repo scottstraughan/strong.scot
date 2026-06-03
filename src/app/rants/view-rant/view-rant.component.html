@@ -1,7 +1,13 @@
 @if (rant(); as rant) {
   <article>
-    <header title="Click to reveal thumbnail image" (click)="onToggleThumbnail()">
-      <div class="thumbnail" [style.background-image]="'url(' + rant.thumbnail + ')'"></div>
+    <header
+      title="Click to reveal thumbnail image"
+      (click)="onToggleThumbnail()"
+    >
+      <div
+        class="thumbnail"
+        [style.background-image]="'url(' + rant.thumbnail + ')'"
+      ></div>
       <div class="container-wrapper">
         <h1>{{ rant.title }}</h1>
         <h2>{{ rant.description }}</h2>

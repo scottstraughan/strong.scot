@@ -8,9 +8,8 @@ describe('ViewRantComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ViewRantComponent]
-    })
-    .compileComponents();
+      imports: [ViewRantComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ViewRantComponent);
     component = fixture.componentInstance;

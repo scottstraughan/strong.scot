@@ -28,27 +28,26 @@ export class GramService {
   constructor(private httpClient: HttpClient) {}
 
   getPosts(mode: MediaMode): Observable<GramPost[]> {
-    return this.httpClient
-      .get<GramData>('/images/gram/gram.json')
-      .pipe(
-        map(data => data.posts),
-        map(posts => posts.filter(post => {
+    return this.httpClient.get<GramData>('/images/gram/gram.json').pipe(
+      map((data) => data.posts),
+      map((posts) =>
+        posts.filter((post) => {
           if (mode === 'all') {
             return true;
           } else if (post.attached.type === mode) {
             return true;
           }
-          
-          return false;
-        }))
-      );
 
+          return false;
+        }),
+      ),
+    );
   }
 
   show(): Promise<void> {
     document.body.style.overflow = 'hidden';
     this.visible$.next(true);
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       this.closeResolve = resolve;
     });
   }

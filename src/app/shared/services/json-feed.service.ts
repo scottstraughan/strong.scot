@@ -24,33 +24,30 @@ import { inject, Injectable } from '@angular/core';
  * Base class for all json based services.
  */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export abstract class JsonFeedService {
   protected httpClient = inject(HttpClient);
 
   /**
-  * Constructor.
-  */
-  protected constructor(
-    protected feedBaseUrl: string
-  ) { }
+   * Constructor.
+   */
+  protected constructor(protected feedBaseUrl: string) {}
 
   /**
    * @inheritDoc
    */
-  abstract all(
-    limit: number,
-    offset: number
-  ): Observable<any[]>;
+  abstract all(limit: number, offset: number): Observable<any[]>;
 
   /**
    * Count how many feed pages are present.
    */
   countFeedPages(): Observable<number> {
-    return this.fetchFeed(0).pipe(map((feed) => {
-      return feed._total_pages;
-    }));
+    return this.fetchFeed(0).pipe(
+      map((feed) => {
+        return feed._total_pages;
+      }),
+    );
   }
 
   /**
@@ -58,12 +55,12 @@ export abstract class JsonFeedService {
    */
   protected _all<T>(
     limit: number | null = null,
-    offset: number = 0
+    offset: number = 0,
   ): Observable<FilterResult<T>> {
     return this.fetch<T>(limit, offset).pipe(
       map((result) => {
         return JsonFeedService.remapFeedResult<T>(result);
-      })
+      }),
     );
   }
 
@@ -71,9 +68,7 @@ export abstract class JsonFeedService {
    * Convert a JSON feed item into an actual model.
    * @param feedItem
    */
-  abstract convertFeedItem<T>(
-    feedItem: any
-  ): T;
+  abstract convertFeedItem<T>(feedItem: any): T;
 
   /**
    * @param limit
@@ -81,7 +76,7 @@ export abstract class JsonFeedService {
    */
   fetch<T>(
     limit: number | null = null,
-    offset: number = 0
+    offset: number = 0,
   ): Observable<FeedResult<T>> {
     let totalItemCount = 0;
     let filteredItemCount = 0;
@@ -94,38 +89,45 @@ export abstract class JsonFeedService {
           requests.push(this.fetchFeed(pageNumber));
         }
 
-        return forkJoin(requests)
-          .pipe(
-            tap(requests =>
-              totalItemCount = requests[0]._total_items),
-            map(requests =>
-              requests.reduce((accumulator, feed) => accumulator.concat(feed.items), <T[]>[])),
-            map(feedItems =>
-              feedItems.map(feedItem => this.convertFeedItem<T>(feedItem))),
-            tap(feedItems =>
-              filteredItemCount = feedItems.length),
-            map(feedItems =>
-              limit ? feedItems.slice(offset, limit + offset) : feedItems.slice(offset)),
-            map(convertedFeedItems =>
-              <FeedResult<T>> {
+        return forkJoin(requests).pipe(
+          tap((requests) => (totalItemCount = requests[0]._total_items)),
+          map((requests) =>
+            requests.reduce(
+              (accumulator, feed) => accumulator.concat(feed.items),
+              <T[]>[],
+            ),
+          ),
+          map((feedItems) =>
+            feedItems.map((feedItem) => this.convertFeedItem<T>(feedItem)),
+          ),
+          tap((feedItems) => (filteredItemCount = feedItems.length)),
+          map((feedItems) =>
+            limit
+              ? feedItems.slice(offset, limit + offset)
+              : feedItems.slice(offset),
+          ),
+          map(
+            (convertedFeedItems) =>
+              <FeedResult<T>>{
                 items: convertedFeedItems,
                 totalItemCount: totalItemCount,
                 filteredItemCount: filteredItemCount,
                 resultCount: convertedFeedItems.length,
-              }),
-          )
-      })
+              },
+          ),
+        );
+      }),
     );
   }
 
   /**
    * @param page
    */
-  fetchFeed(
-    page: number = 0
-  ): Observable<JsonFeed> {
+  fetchFeed(page: number = 0): Observable<JsonFeed> {
     return this.httpClient.get<JsonFeed>(
-      JsonFeedService.buildFeedUrl(this.feedBaseUrl, page), { responseType: 'json' });
+      JsonFeedService.buildFeedUrl(this.feedBaseUrl, page),
+      { responseType: 'json' },
+    );
   }
 
   /**
@@ -133,10 +135,7 @@ export abstract class JsonFeedService {
    * @param baseUrl
    * @param page
    */
-  static buildFeedUrl(
-    baseUrl: string,
-    page: number
-  ): string {
+  static buildFeedUrl(baseUrl: string, page: number): string {
     let pageName = 'feed.json';
 
     if (page > 0) {
@@ -150,47 +149,45 @@ export abstract class JsonFeedService {
    * @param jsonResult
    * @protected
    */
-  static remapFeedResult<T>(
-    jsonResult: FeedResult<T>
-  ): FilterResult<T> {
+  static remapFeedResult<T>(jsonResult: FeedResult<T>): FilterResult<T> {
     return {
       items: jsonResult.items,
       resultCount: jsonResult.resultCount,
       filteredItemCount: jsonResult.filteredItemCount,
-      totalItemCount: jsonResult.totalItemCount
-    }
+      totalItemCount: jsonResult.totalItemCount,
+    };
   }
 }
 
 export interface FilterResult<T> {
   items: T[];
-  resultCount: number
-  filteredItemCount: number
-  totalItemCount: number
+  resultCount: number;
+  filteredItemCount: number;
+  totalItemCount: number;
 }
 
 /**
  * JsonFeed interface. All responses from the backend should use this format.
  */
 export interface JsonFeed {
-  readonly version: string
-  readonly title: string
-  readonly home_page_url: string
-  readonly feed_url: string
-  readonly _total_items: number
-  readonly _total_pages: number
-  readonly _items_on_page: number
-  readonly items: any[]
-  readonly next_url?: string
-  readonly _filters: {string: []}
+  readonly version: string;
+  readonly title: string;
+  readonly home_page_url: string;
+  readonly feed_url: string;
+  readonly _total_items: number;
+  readonly _total_pages: number;
+  readonly _items_on_page: number;
+  readonly items: any[];
+  readonly next_url?: string;
+  readonly _filters: { string: [] };
 }
 
 /**
  * Result wrapper.
  */
 export interface FeedResult<T> {
-  readonly items: T[]
-  readonly resultCount: number
-  readonly filteredItemCount: number
-  readonly totalItemCount: number
+  readonly items: T[];
+  readonly resultCount: number;
+  readonly filteredItemCount: number;
+  readonly totalItemCount: number;
 }

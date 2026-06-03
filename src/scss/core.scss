@@ -1,5 +1,5 @@
-@use 'variables' as *;
-@use 'common' as *;
+@use "variables" as *;
+@use "common" as *;
 
 body {
   background-color: var(--color-dark-purple);
@@ -49,7 +49,8 @@ a {
     }
   }
 
-  img, video {
+  img,
+  video {
     height: auto;
     max-width: 100%;
     width: 100%;
@@ -59,8 +60,8 @@ a {
     background-color: var(--hint-color-alt);
     border-radius: 4px;
     color: var(--white-color);
-    font-size: .8em;
-    padding: .2rem .3rem;
+    font-size: 0.8em;
+    padding: 0.2rem 0.3rem;
   }
 
   pre code {
@@ -89,8 +90,8 @@ a {
 
   &.icon {
     > div:nth-of-type(1) {
-      background-color: rgba(0, 0, 0, .15);
-      padding: 1rem .8rem;
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1rem 0.8rem;
     }
   }
 

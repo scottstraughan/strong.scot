@@ -1,12 +1,24 @@
 <a href="https://www.github.com/scottstraughan" target="_blank">
   <div class="icon">
-    <img class="logo" ngSrc="./images/logos/github.svg" alt="GitHub Logo" height="17" width="70" />
+    <img
+      class="logo"
+      ngSrc="./images/logos/github.svg"
+      alt="GitHub Logo"
+      height="17"
+      width="70"
+    />
   </div>
 
   @if (bio(); as bio) {
     <div class="title">
       <div>
-        <img class="avatar" [ngSrc]="bio.avatar_url" alt="GitHub Avatar" height="460" width="460" />
+        <img
+          class="avatar"
+          [ngSrc]="bio.avatar_url"
+          alt="GitHub Avatar"
+          height="460"
+          width="460"
+        />
       </div>
       <div class="login">github.com/{{ bio.login }}</div>
     </div>

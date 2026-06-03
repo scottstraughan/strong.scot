@@ -10,12 +10,8 @@ import { GramService } from '../shared/services/gram.service';
   selector: 'scott-about',
   templateUrl: './me.component.html',
   standalone: true,
-  imports: [
-    GithubWidgetComponent,
-    LinkedinWidgetComponent,
-    NgOptimizedImage
-  ],
-  styleUrl: './me.component.scss'
+  imports: [GithubWidgetComponent, LinkedinWidgetComponent, NgOptimizedImage],
+  styleUrl: './me.component.scss',
 })
 export class MeComponent {
   /**
@@ -30,7 +26,7 @@ export class MeComponent {
     '/images/about/6.jpg',
     '/images/about/7.jpg',
     '/images/about/8.jpg',
-    '/images/about/9.jpg'
+    '/images/about/9.jpg',
   ];
 
   /**
@@ -46,8 +42,11 @@ export class MeComponent {
     meta: Meta,
     private gramService: GramService,
   ) {
-    title.setTitle(`${MeComponent.TITLE} - ${AppComponent.TITLE}`)
-    meta.addTag({ 'description': 'Learn about my, who I am, what I am about and download my CV.' });
+    title.setTitle(`${MeComponent.TITLE} - ${AppComponent.TITLE}`);
+    meta.addTag({
+      description:
+        'Learn about my, who I am, what I am about and download my CV.',
+    });
   }
 
   async onPhotosClicked() {

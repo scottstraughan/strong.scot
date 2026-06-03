@@ -2,121 +2,123 @@
 @use "../../scss/variables" as *;
 
 :host {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .6);
-    z-index: 9999999999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999999999999;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 90vh;
+  background-color: white;
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  text-align: center;
+
+  header {
+    background-color: var(--color-base-secondary);
+    color: var(--white-color);
     display: flex;
-    flex-direction: column;
-    width: 600px;
-    height: 90vh;
-    background-color: white;
-    border-radius: var(--border-radius-large);
-    overflow: hidden;
-    text-align: center;
 
-    header {
-        background-color: var(--color-base-secondary);
-        color: var(--white-color);
-        display: flex;
+    > div {
+      padding: 1.5rem;
 
-        > div {
-            padding: 1.5rem;
-
-            img {
-                max-width: 40px;
-                opacity: .9;
-            }
-        }
-
-        nav {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 1rem;
-            color: var(--white-color);
-            padding-right: 1rem;
-
-            svg {
-                max-width: 30px;
-                opacity: .9;
-            }
-
-            > div {
-                display: inline-flex;
-                padding: 1rem;
-                opacity: .5;
-                cursor: pointer;
-                transition: var(--default-transition-normal);
-
-                &.selected,
-                &:hover {
-                    opacity: 1;
-                    color: var(--color-base-tertiary);
-                }
-            }
-        }
+      img {
+        max-width: 40px;
+        opacity: 0.9;
+      }
     }
 
-    .content {
-        overflow: auto;
-        height: 100%;
-        flex: 1;
+    nav {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+      color: var(--white-color);
+      padding-right: 1rem;
+
+      svg {
+        max-width: 30px;
+        opacity: 0.9;
+      }
+
+      > div {
+        display: inline-flex;
         padding: 1rem;
-    }
-
-    .gram-item {
-        border-radius: 8px;
-        background-color: var(--color-base-tertiary);
-        color: var(--white-color);
-        overflow: hidden;
-        margin-bottom: .5rem;
-    }
-
-    .gram-item-wrapper {
-        background-color: var(--color-base-secondary);
-        border-radius: 8px;
-        min-height: 200px;
-    }
-
-    .gram-item a {
-        display: block;
-        transition: transform 200ms ease, box-shadow 200ms ease;
-        border-radius: 12px;
-        overflow: hidden;
-    }
-
-    .gram-item video,
-    .gram-item img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .gram-item video {
+        opacity: 0.5;
         cursor: pointer;
-    }
+        transition: var(--default-transition-normal);
 
-    .gram-item-title {
-        line-height: normal;
-        padding: .5rem;
-        font-size: .85rem;
+        &.selected,
+        &:hover {
+          opacity: 1;
+          color: var(--color-base-tertiary);
+        }
+      }
     }
+  }
 
-    .empty {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
+  .content {
+    overflow: auto;
+    height: 100%;
+    flex: 1;
+    padding: 1rem;
+  }
+
+  .gram-item {
+    border-radius: 8px;
+    background-color: var(--color-base-tertiary);
+    color: var(--white-color);
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+
+  .gram-item-wrapper {
+    background-color: var(--color-base-secondary);
+    border-radius: 8px;
+    min-height: 200px;
+  }
+
+  .gram-item a {
+    display: block;
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .gram-item video,
+  .gram-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .gram-item video {
+    cursor: pointer;
+  }
+
+  .gram-item-title {
+    line-height: normal;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 }

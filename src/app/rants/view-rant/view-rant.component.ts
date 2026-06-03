@@ -1,4 +1,12 @@
-import { Component, Inject, inject, OnInit, signal, Signal, WritableSignal } from '@angular/core';
+import {
+  Component,
+  Inject,
+  inject,
+  OnInit,
+  signal,
+  Signal,
+  WritableSignal,
+} from '@angular/core';
 import { Rant, RantService } from '../../shared/services/rants.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, of, switchMap, tap } from 'rxjs';
@@ -12,12 +20,10 @@ import { LoadingAnimationComponent } from '../../shared/ui-components/loading-an
 
 @Component({
   selector: 'scott-view-rant',
-  imports: [
-    LoadingAnimationComponent
-  ],
+  imports: [LoadingAnimationComponent],
   templateUrl: './view-rant.component.html',
   standalone: true,
-  styleUrl: './view-rant.component.scss'
+  styleUrl: './view-rant.component.scss',
 })
 export class ViewRantComponent implements OnInit {
   /**
@@ -39,32 +45,30 @@ export class ViewRantComponent implements OnInit {
     private hljs: HighlightJS,
     title: Title,
   ) {
-    this.rant = toSignal(this.activatedRoute.params
-        .pipe(
-          switchMap(params =>
-            this.rantService.getRantByTag(params['tag'])),
-          tap(rant =>
-            title.setTitle(`${rant.title} - ${RantsComponent.TITLE} - ${AppComponent.TITLE}`)),
-          tap(rant =>
-            meta.addTag({ 'description': rant.description })),
-          tap(rant =>
-            this.createOgMeta(rant)),
-          catchError(error => {
-            this.router.navigate(['./'], { replaceUrl: true })
-              .then();
-
-            return of(error);
-          })
+    this.rant = toSignal(
+      this.activatedRoute.params.pipe(
+        switchMap((params) => this.rantService.getRantByTag(params['tag'])),
+        tap((rant) =>
+          title.setTitle(
+            `${rant.title} - ${RantsComponent.TITLE} - ${AppComponent.TITLE}`,
+          ),
         ),
-      { initialValue: undefined });
+        tap((rant) => meta.addTag({ description: rant.description })),
+        tap((rant) => this.createOgMeta(rant)),
+        catchError((error) => {
+          this.router.navigate(['./'], { replaceUrl: true }).then();
+
+          return of(error);
+        }),
+      ),
+      { initialValue: undefined },
+    );
   }
 
   /**
    * Create some OG meta.
    */
-  createOgMeta(
-    rant: Rant
-  ) {
+  createOgMeta(rant: Rant) {
     this.meta.addTag({ 'og:title': rant.title });
     this.meta.addTag({ 'og:type': 'blog' });
     this.meta.addTag({ 'og:url': this.document.location.href });

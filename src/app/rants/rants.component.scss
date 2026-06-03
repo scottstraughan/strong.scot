@@ -1,5 +1,5 @@
-@use '../../scss/variables' as *;
-@use '../../scss/common' as *;
+@use "../../scss/variables" as *;
+@use "../../scss/common" as *;
 
 scott-loading {
   padding: 10% 0;
@@ -38,7 +38,11 @@ scott-loading {
 
       .info {
         backdrop-filter: none;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
         padding: 3rem;
 
         @media screen and (min-width: $mobile-breakpoint) {
@@ -78,7 +82,8 @@ scott-loading {
       flex: 1;
       padding: 2rem;
 
-      h1, h2 {
+      h1,
+      h2 {
         margin: 0;
       }
 
@@ -89,24 +94,24 @@ scott-loading {
       h2 {
         font-size: 1rem;
         font-weight: normal;
-        margin-top: .5rem;
-        opacity: .5;
+        margin-top: 0.5rem;
+        opacity: 0.5;
       }
     }
   }
 
   @media screen and (min-width: $mobile-breakpoint) {
     .rant {
-      flex: 0 0 calc(50% - .5rem);
+      flex: 0 0 calc(50% - 0.5rem);
     }
 
     .rant.primary {
-      flex: 0 0 calc(60% - .5rem);
+      flex: 0 0 calc(60% - 0.5rem);
       height: 500px;
     }
 
     .rant.secondary {
-      flex: 0 0 calc(40% - .5rem);
+      flex: 0 0 calc(40% - 0.5rem);
     }
   }
 }
@@ -121,7 +126,7 @@ scott-loading {
   width: 100%;
 
   img {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
     vertical-align: middle;
   }
 }

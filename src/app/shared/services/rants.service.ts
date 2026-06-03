@@ -3,10 +3,10 @@ import { map, Observable } from 'rxjs';
 import { JsonFeedService } from './json-feed.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RantService extends JsonFeedService {
-  static BASE_FEED_PATH = '/rants/'
+  static BASE_FEED_PATH = '/rants/';
 
   constructor() {
     super(RantService.BASE_FEED_PATH);
@@ -17,7 +17,11 @@ export class RantService extends JsonFeedService {
       return undefined;
     }
 
-    if (value.startsWith('http') || value.startsWith('//') || value.startsWith('/')) {
+    if (
+      value.startsWith('http') ||
+      value.startsWith('//') ||
+      value.startsWith('/')
+    ) {
       return value;
     }
 
@@ -28,39 +32,28 @@ export class RantService extends JsonFeedService {
     return this.all(10000, 0);
   }
 
-  getRantByTag(
-    tag: string
-  ): Observable<Rant> {
-    return this.getRants()
-      .pipe(
-        map(rants => {
-          for (const project of rants) {
-            if (project.tag == tag) {
-              return project;
-            }
+  getRantByTag(tag: string): Observable<Rant> {
+    return this.getRants().pipe(
+      map((rants) => {
+        for (const project of rants) {
+          if (project.tag == tag) {
+            return project;
           }
+        }
 
-          throw new Error(`No project with tag "${tag}" was found.`);
-        })
-      );
+        throw new Error(`No project with tag "${tag}" was found.`);
+      }),
+    );
   }
 
-  all(
-    limit: number,
-    offset: number
-  ): Observable<Rant[]> {
-    return super._all<Rant>(limit, offset)
-      .pipe(
-        map((f => f.items))
-      );
+  all(limit: number, offset: number): Observable<Rant[]> {
+    return super._all<Rant>(limit, offset).pipe(map((f) => f.items));
   }
 
-  convertFeedItem<T>(
-    feedItem: any
-  ): T {
+  convertFeedItem<T>(feedItem: any): T {
     const tag = feedItem['_tag'] ?? feedItem['tag'] ?? feedItem['id'];
 
-    return <T> {
+    return <T>{
       id: feedItem['id'],
       tag,
       title: feedItem['title'],
@@ -69,19 +62,19 @@ export class RantService extends JsonFeedService {
       thumbnail: RantService.normalizeAssetUrl(feedItem['_thumbnail']),
       icon: RantService.normalizeAssetUrl(feedItem['_icon']),
       body: feedItem['_content'] ?? undefined,
-      date: new Date(feedItem['_date'])
-    }
+      date: new Date(feedItem['_date']),
+    };
   }
 }
 
 export interface Rant {
-  id: string
-  tag: string
-  title: string
-  description: string
-  url: string
-  thumbnail: string
-  icon: string
-  body: string
-  date: Date
+  id: string;
+  tag: string;
+  title: string;
+  description: string;
+  url: string;
+  thumbnail: string;
+  icon: string;
+  body: string;
+  date: Date;
 }

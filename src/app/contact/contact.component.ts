@@ -2,7 +2,12 @@ import { Component, signal, WritableSignal } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { Meta, Title } from '@angular/platform-browser';
 import { NgOptimizedImage } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoadingAnimationComponent } from '../shared/ui-components/loading-animaton/loading-animation.component';
 
@@ -10,12 +15,8 @@ import { LoadingAnimationComponent } from '../shared/ui-components/loading-anima
   selector: 'scott-contact',
   templateUrl: './contact.component.html',
   standalone: true,
-  imports: [
-    NgOptimizedImage,
-    ReactiveFormsModule,
-    LoadingAnimationComponent
-  ],
-  styleUrl: './contact.component.scss'
+  imports: [NgOptimizedImage, ReactiveFormsModule, LoadingAnimationComponent],
+  styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
   /**
@@ -47,15 +48,12 @@ export class ContactComponent {
    * Form group.
    */
   readonly contactForm: FormGroup = new FormGroup({
-    name: new FormControl("", [
+    name: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    subject: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
     ]),
-    subject: new FormControl("", [
-      Validators.required,
-      Validators.minLength(4),
-    ]),
-    message: new FormControl("", [
+    message: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
     ]),
@@ -70,7 +68,10 @@ export class ContactComponent {
     private httpClient: HttpClient,
   ) {
     title.setTitle(`${ContactComponent.TITLE} - ${AppComponent.TITLE}`);
-    meta.addTag({ 'description': 'Contact me using my web form, you can also connect with me on LinkedIn.' });
+    meta.addTag({
+      description:
+        'Contact me using my web form, you can also connect with me on LinkedIn.',
+    });
   }
 
   /**
@@ -99,24 +100,25 @@ export class ContactComponent {
     };
 
     const headers = new HttpHeaders({
-      'Accept': 'application/json'
+      Accept: 'application/json',
     });
 
     this.sending.set(true);
 
-    this.httpClient.post(ContactComponent.FORM_CARRY_ENDPOINT, formData, { headers })
+    this.httpClient
+      .post(ContactComponent.FORM_CARRY_ENDPOINT, formData, { headers })
       .subscribe({
         next: () => {
           this.sent.set(true);
           this.sending.set(false);
         },
-        error: err => {
+        error: (err) => {
           console.error('Error', err);
 
           this.sending.set(false);
           this.sent.set(true);
           this.error.set(true);
-        }
+        },
       });
   }
 }

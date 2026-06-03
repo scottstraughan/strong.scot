@@ -1,4 +1,4 @@
-@use '../../scss/common' as *;
+@use "../../scss/common" as *;
 
 .about {
   a {
@@ -32,7 +32,7 @@
     label {
       display: block;
       font-weight: bold;
-      padding: 1rem 0 .5rem 0;
+      padding: 1rem 0 0.5rem 0;
     }
 
     textarea {
@@ -52,7 +52,7 @@
 
       &:disabled {
         cursor: not-allowed;
-        opacity: .6;
+        opacity: 0.6;
       }
 
       scott-loading {
@@ -76,7 +76,7 @@
   }
 
   .button.action {
-    background-color: rgba(255, 255, 255, .2);
+    background-color: rgba(255, 255, 255, 0.2);
     border: 0;
     border-radius: 6px;
     color: var(--white-color);
@@ -88,7 +88,7 @@
     transition: var(--default-transition-quick);
 
     &:hover {
-      background-color: rgba(255, 255, 255, .3);
+      background-color: rgba(255, 255, 255, 0.3);
     }
   }
 }

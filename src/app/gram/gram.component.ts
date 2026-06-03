@@ -70,7 +70,9 @@ export class GramComponent {
     const el = event.target as HTMLElement;
     const nearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 200;
     if (nearBottom && this.displayCount() < this.allPosts().length) {
-      this.displayCount.set(Math.min(this.displayCount() + 10, this.allPosts().length));
+      this.displayCount.set(
+        Math.min(this.displayCount() + 10, this.allPosts().length),
+      );
     }
   }
 

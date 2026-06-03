@@ -1,205 +1,276 @@
 import { Injectable } from '@angular/core';
-import { Graphic, ProjectGraphicType } from '../ui-components/image-collection/image-collection.component';
+import {
+  Graphic,
+  ProjectGraphicType,
+} from '../ui-components/image-collection/image-collection.component';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProjectsService {
   private projects: Project[] = [
     {
       tag: 'bob',
       name: 'Bob',
-      description: 'Bob is a versatile AI assistant that lets you chat, ask questions, and track conversation history with ease. Available as both an Angular component (ngx-bob) and a backend server (bob-brain), it provides a seamless, interactive experience across web applications. Built with Angular and ExpressJS, Bob features a clean, responsive interface for smooth messaging and history tracking, while the brain connects to AI providers like OpenAI and Claude to generate intelligent responses. Users can maintain conversations, query multiple AI models, and integrate Bob directly into their apps—all without complex setup. With its focus on flexibility, interactivity, and AI-powered insights, Bob delivers a polished, developer-friendly conversational experience.',
+      description:
+        'Bob is a versatile AI assistant that lets you chat, ask questions, and track conversation history with ease. Available as both an Angular component (ngx-bob) and a backend server (bob-brain), it provides a seamless, interactive experience across web applications. Built with Angular and ExpressJS, Bob features a clean, responsive interface for smooth messaging and history tracking, while the brain connects to AI providers like OpenAI and Claude to generate intelligent responses. Users can maintain conversations, query multiple AI models, and integrate Bob directly into their apps—all without complex setup. With its focus on flexibility, interactivity, and AI-powered insights, Bob delivers a polished, developer-friendly conversational experience.',
       graphics: [
         {
           url: './images/projects/bob/bob.mp4',
           title: 'Video of Bob',
-          type: ProjectGraphicType.VIDEO
+          type: ProjectGraphicType.VIDEO,
         },
         {
           url: './images/projects/bob/bob-chat-ui.webp',
           title: 'Bob Chat UI',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
         {
           url: './images/projects/bob/bob-widget.webp',
           title: 'Bob Widget',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
       ],
-      tags: ['TypeScript', 'Angular', 'Node', 'ExpressJS', 'OpenAI/Claude/other', 'Embedding Generation', 'Vector Search'],
+      tags: [
+        'TypeScript',
+        'Angular',
+        'Node',
+        'ExpressJS',
+        'OpenAI/Claude/other',
+        'Embedding Generation',
+        'Vector Search',
+      ],
       urls: [
-        { name: 'GitHub (ngx-bob)', href: 'https://github.com/scottstraughan/ngx-bob'},
-        { name: 'GitHub (bob-brain)', href: 'https://github.com/scottstraughan/bob-brain'},
-        { name: 'Try Bob', href: 'https://www.saorsail.com'}
-      ]
+        {
+          name: 'GitHub (ngx-bob)',
+          href: 'https://github.com/scottstraughan/ngx-bob',
+        },
+        {
+          name: 'GitHub (bob-brain)',
+          href: 'https://github.com/scottstraughan/bob-brain',
+        },
+        { name: 'Try Bob', href: 'https://www.saorsail.com' },
+      ],
     },
     {
       tag: 'saorsail',
       name: 'Saorsail',
-      description: 'Saorsail is a modern app that lets you browse, download, and install apps from the F-Droid repository with ease. Available as both a web app and an Android app, it offers a consistent and intuitive experience across platforms. Built with Angular and written in TypeScript, Saorsail features a sleek, responsive UI designed for smooth navigation and performance. Users can explore the full F-Droid database, view app details, and install or download APKs directly to their devices—all without leaving the app. With its focus on simplicity, privacy, and open-source access, Saorsail is a streamlined gateway to the F-Droid ecosystem.',
+      description:
+        'Saorsail is a modern app that lets you browse, download, and install apps from the F-Droid repository with ease. Available as both a web app and an Android app, it offers a consistent and intuitive experience across platforms. Built with Angular and written in TypeScript, Saorsail features a sleek, responsive UI designed for smooth navigation and performance. Users can explore the full F-Droid database, view app details, and install or download APKs directly to their devices—all without leaving the app. With its focus on simplicity, privacy, and open-source access, Saorsail is a streamlined gateway to the F-Droid ecosystem.',
       graphics: [
         {
           url: './images/projects/saorsail/categories.webp',
           title: 'Categories View',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
         {
           url: './images/projects/saorsail/settings.webp',
           title: 'Settings Popup',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
         {
           url: './images/projects/saorsail/pair.webp',
           title: 'Pair with Android Assistant',
-          type: ProjectGraphicType.IMAGE
-        }
+          type: ProjectGraphicType.IMAGE,
+        },
       ],
-      tags: ['TypeScript', 'Angular', 'Signals', 'Android', 'Java', 'Zuplo', 'API', 'WebWorkers', 'IndexedDB', 'Node.js', 'Express', 'OpenAI'],
+      tags: [
+        'TypeScript',
+        'Angular',
+        'Signals',
+        'Android',
+        'Java',
+        'Zuplo',
+        'API',
+        'WebWorkers',
+        'IndexedDB',
+        'Node.js',
+        'Express',
+        'OpenAI',
+      ],
       urls: [
-        { name: 'GitHub', href: 'https://github.com/scottstraughan/saorsail-web'},
-        { name: 'saorsail.com', href: 'https://www.saorsail.com'}
-      ]
+        {
+          name: 'GitHub',
+          href: 'https://github.com/scottstraughan/saorsail-web',
+        },
+        { name: 'saorsail.com', href: 'https://www.saorsail.com' },
+      ],
     },
     {
       tag: 'scoredash.xyz',
       name: 'Scoredash.xyz',
-      description: 'Scoredash.xyz is a modern web app that lets you assess how well a GitHub or GitLab user or organization follows open-source best practices. Built as a full Progressive Web App (PWA), it features local caching, a fast and responsive interface, and support for both dark and light modes. With Scoredash, you can explore multiple repositories, view detailed adherence scores, and get actionable recommendations on how to improve each project’s open-source quality. Its clean, modern UI makes it easy to navigate and compare projects, making Scoredash an essential tool for developers, contributors, and maintainers aiming to elevate their open-source standards.',
+      description:
+        'Scoredash.xyz is a modern web app that lets you assess how well a GitHub or GitLab user or organization follows open-source best practices. Built as a full Progressive Web App (PWA), it features local caching, a fast and responsive interface, and support for both dark and light modes. With Scoredash, you can explore multiple repositories, view detailed adherence scores, and get actionable recommendations on how to improve each project’s open-source quality. Its clean, modern UI makes it easy to navigate and compare projects, making Scoredash an essential tool for developers, contributors, and maintainers aiming to elevate their open-source standards.',
       graphics: [
         {
           url: './images/projects/scoredash.xyz/dark-mode.webp',
           title: 'Dark Mode',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
         {
           url: './images/projects/scoredash.xyz/explore.webp',
           title: 'Explore',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
         {
           url: './images/projects/scoredash.xyz/add.webp',
           title: 'Add a new org',
-          type: ProjectGraphicType.IMAGE
-        }
+          type: ProjectGraphicType.IMAGE,
+        },
       ],
-      tags: ['Angular', 'TypeScript', 'HTML5', 'SASS', 'IndexedDB', 'API', 'OpenSSF'],
+      tags: [
+        'Angular',
+        'TypeScript',
+        'HTML5',
+        'SASS',
+        'IndexedDB',
+        'API',
+        'OpenSSF',
+      ],
       urls: [
-        { name: 'GitHub', href: 'https://github.com/scottstraughan/openssf-scorecard-dashboard'},
-        { name: 'scoredash.xyz', href: 'https://www.scoredash.xyz'}
-      ]
+        {
+          name: 'GitHub',
+          href: 'https://github.com/scottstraughan/openssf-scorecard-dashboard',
+        },
+        { name: 'scoredash.xyz', href: 'https://www.scoredash.xyz' },
+      ],
     },
     {
       tag: 'sycl.tech',
       name: 'SYCL.tech',
-      description: 'sycl.tech is a modern web platform that makes learning and exploring SYCL simple, interactive, and accessible. Built with Angular, it offers a clean, responsive interface where users can dive into tutorials, experiment with code in a live playground, and stay up to date with the latest SYCL projects, news, and videos. Whether you’re a beginner curious about parallel programming or an experienced developer seeking resources, Sycl.tech brings knowledge, experimentation, and discovery together in one open, easy-to-use hub.',
+      description:
+        'sycl.tech is a modern web platform that makes learning and exploring SYCL simple, interactive, and accessible. Built with Angular, it offers a clean, responsive interface where users can dive into tutorials, experiment with code in a live playground, and stay up to date with the latest SYCL projects, news, and videos. Whether you’re a beginner curious about parallel programming or an experienced developer seeking resources, Sycl.tech brings knowledge, experimentation, and discovery together in one open, easy-to-use hub.',
       graphics: [
         {
           url: './images/projects/sycl.tech/home.webp',
           title: 'Home',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
         {
           url: './images/projects/sycl.tech/calendar.webp',
           title: 'Calendar',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
         {
           url: './images/projects/sycl.tech/dark-mode.webp',
           title: 'Dark Mode',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
         {
           url: './images/projects/sycl.tech/playground.webp',
           title: 'Playground',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
         {
           url: './images/projects/sycl.tech/projects.webp',
           title: 'Projects',
-          type: ProjectGraphicType.IMAGE
-        }
+          type: ProjectGraphicType.IMAGE,
+        },
       ],
-      tags: ['SYCL', 'Angular', 'Python', 'JSON Feed 1.0', 'IndexedDB', 'Compiler Playground', 'Novel Infrastructure'],
+      tags: [
+        'SYCL',
+        'Angular',
+        'Python',
+        'JSON Feed 1.0',
+        'IndexedDB',
+        'Compiler Playground',
+        'Novel Infrastructure',
+      ],
       urls: [
-        { name: 'GitHub', href: 'https://github.com/scottstraughan/sycl.tech-website'},
-        { name: 'sycl.tech', href: 'https://www.sycl.tech'}
-      ]
+        {
+          name: 'GitHub',
+          href: 'https://github.com/scottstraughan/sycl.tech-website',
+        },
+        { name: 'sycl.tech', href: 'https://www.sycl.tech' },
+      ],
     },
     {
       tag: 'uradio',
       name: 'uRadio',
-      description: 'uRadio is a lightweight and unobtrusive desktop app for macOS that makes it easy to listen to public radio stations from around the world. Designed with simplicity in mind, uRadio runs quietly in the background, offering quick access to your favorite stations without cluttering your workspace. Written in Swift for optimal performance and native integration, the app is fast, responsive, and feels right at home on macOS. Whether you’re working, relaxing, or just want background audio, uRadio provides a seamless listening experience with minimal system impact. Best of all, it’s completely free to download, making quality public radio just a click away.',
+      description:
+        'uRadio is a lightweight and unobtrusive desktop app for macOS that makes it easy to listen to public radio stations from around the world. Designed with simplicity in mind, uRadio runs quietly in the background, offering quick access to your favorite stations without cluttering your workspace. Written in Swift for optimal performance and native integration, the app is fast, responsive, and feels right at home on macOS. Whether you’re working, relaxing, or just want background audio, uRadio provides a seamless listening experience with minimal system impact. Best of all, it’s completely free to download, making quality public radio just a click away.',
       graphics: [
         {
           url: './images/projects/uradio/preview.mp4',
           title: 'Swift App',
-          type: ProjectGraphicType.VIDEO
+          type: ProjectGraphicType.VIDEO,
         },
         {
           url: './images/projects/uradio/screenshot.webp',
           title: 'Swift App',
-          type: ProjectGraphicType.IMAGE
-        }
+          type: ProjectGraphicType.IMAGE,
+        },
       ],
       tags: ['Swift', 'MacOS', 'Apple', 'Radio', 'API'],
       urls: [
-        { name: 'GitHub', href: 'https://github.com/scottstraughan/uradio'},
-      ]
+        { name: 'GitHub', href: 'https://github.com/scottstraughan/uradio' },
+      ],
     },
     {
       tag: 'hive-tizen',
       name: 'Hive Wearable',
-      description: 'Hive Wearable was a smart and intuitive app designed specifically for Tizen-based smartwatches, such as the Samsung Gear S3 Frontier, bringing quick and convenient control of your Hive home thermostat right to your wrist. With a clean, watch-optimized interface, the app allowed users to set target temperatures, activate boost mode, and view the current room temperature in real time. Designed to complement the Hive ecosystem, Hive Wearable made it easy to adjust your home’s heating without reaching for your phone or speaking to a voice assistant. It offered a smooth, reliable experience tailored to the capabilities of Tizen wearables, giving users precise control of their home climate directly from their smartwatch.',
+      description:
+        'Hive Wearable was a smart and intuitive app designed specifically for Tizen-based smartwatches, such as the Samsung Gear S3 Frontier, bringing quick and convenient control of your Hive home thermostat right to your wrist. With a clean, watch-optimized interface, the app allowed users to set target temperatures, activate boost mode, and view the current room temperature in real time. Designed to complement the Hive ecosystem, Hive Wearable made it easy to adjust your home’s heating without reaching for your phone or speaking to a voice assistant. It offered a smooth, reliable experience tailored to the capabilities of Tizen wearables, giving users precise control of their home climate directly from their smartwatch.',
       graphics: [
         {
           url: './images/projects/hive/hive.mp4',
           title: 'Usage',
-          type: ProjectGraphicType.VIDEO
+          type: ProjectGraphicType.VIDEO,
         },
         {
           url: './images/projects/hive/screenshot.webp',
           title: 'Companion',
-          type: ProjectGraphicType.IMAGE
-        }
+          type: ProjectGraphicType.IMAGE,
+        },
       ],
-      tags: ['Tizen', 'Wearable', 'Vector', 'API', 'JavaScript']
+      tags: ['Tizen', 'Wearable', 'Vector', 'API', 'JavaScript'],
     },
     {
       tag: 'sms2pc',
       name: 'SMS2PC',
-      description: 'SMS2PC was one of the first Android apps to let users send text messages directly from their computer, bridging the gap between mobile and desktop communication. Paired with a Java-based desktop companion app built using Swing, SMS2PC supported Windows, macOS, and Linux, offering a customizable and consistent experience across platforms. The Android app synced your address book, displayed message history, and enabled sending SMS via Wi-Fi, Bluetooth, or even mobile data. At a time when few alternatives existed, SMS2PC stood out for its versatility, multi-platform support, and seamless integration between devices, making it a pioneer in desktop-mobile messaging solutions.',
+      description:
+        'SMS2PC was one of the first Android apps to let users send text messages directly from their computer, bridging the gap between mobile and desktop communication. Paired with a Java-based desktop companion app built using Swing, SMS2PC supported Windows, macOS, and Linux, offering a customizable and consistent experience across platforms. The Android app synced your address book, displayed message history, and enabled sending SMS via Wi-Fi, Bluetooth, or even mobile data. At a time when few alternatives existed, SMS2PC stood out for its versatility, multi-platform support, and seamless integration between devices, making it a pioneer in desktop-mobile messaging solutions.',
       graphics: [
         {
           url: './images/projects/sms2pc/companion.webp',
           title: 'Companion',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
         {
           url: './images/projects/sms2pc/usage.webp',
           title: 'Usage',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
         {
           url: './images/projects/sms2pc/blah.webp',
           title: 'Screenshot',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
       ],
-      tags: ['Java/Swing', 'Android', 'Sockets', 'Synchronization']
+      tags: ['Java/Swing', 'Android', 'Sockets', 'Synchronization'],
     },
     {
       tag: 'androsync',
       name: 'AndroSync',
-      description: 'AndroSync was one of the first Android apps of its kind, designed to seamlessly synchronize photos, music, videos, and documents between your phone and computer. With support for Wi-Fi transfers, it offered a fast and cable-free way to keep your media in sync. A standout feature at the time was its integration with Apple Music, allowing users to sync playlists and music libraries effortlessly—something rarely seen on Android back then. The app featured a clean, user-friendly interface complete with progress bars and system notifications, making the syncing process transparent and easy to manage. As an early Android release, AndroSync helped set the standard for cross-device media management in the mobile era.',
+      description:
+        'AndroSync was one of the first Android apps of its kind, designed to seamlessly synchronize photos, music, videos, and documents between your phone and computer. With support for Wi-Fi transfers, it offered a fast and cable-free way to keep your media in sync. A standout feature at the time was its integration with Apple Music, allowing users to sync playlists and music libraries effortlessly—something rarely seen on Android back then. The app featured a clean, user-friendly interface complete with progress bars and system notifications, making the syncing process transparent and easy to manage. As an early Android release, AndroSync helped set the standard for cross-device media management in the mobile era.',
       graphics: [
         {
           url: './images/projects/androsync/desktop.webp',
           title: 'Companion',
-          type: ProjectGraphicType.IMAGE
+          type: ProjectGraphicType.IMAGE,
         },
       ],
-      tags: ['Java', 'Android', 'Sockets', 'Synchronization', 'Music', 'Videos', 'Documents']
+      tags: [
+        'Java',
+        'Android',
+        'Sockets',
+        'Synchronization',
+        'Music',
+        'Videos',
+        'Documents',
+      ],
     },
   ];
 
@@ -207,12 +278,9 @@ export class ProjectsService {
     return of(this.projects);
   }
 
-  getBestInitialGraphicForProject(
-    project: Project
-  ): Graphic | undefined {
+  getBestInitialGraphicForProject(project: Project): Graphic | undefined {
     for (const graphic of project.graphics) {
-      if (graphic.type == ProjectGraphicType.VIDEO)
-        continue;
+      if (graphic.type == ProjectGraphicType.VIDEO) continue;
 
       return graphic;
     }
@@ -222,15 +290,15 @@ export class ProjectsService {
 }
 
 export interface Project {
-  tag: string
-  name: string
-  description: string
-  graphics: Graphic[]
-  tags: string[]
-  urls?: ProjectUrl[]
+  tag: string;
+  name: string;
+  description: string;
+  graphics: Graphic[];
+  tags: string[];
+  urls?: ProjectUrl[];
 }
 
 export interface ProjectUrl {
-  name: string
-  href: string
+  name: string;
+  href: string;
 }

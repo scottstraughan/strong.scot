@@ -8,9 +8,8 @@ describe('GramComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GramComponent]
-    })
-    .compileComponents();
+      imports: [GramComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(GramComponent);
     component = fixture.componentInstance;
