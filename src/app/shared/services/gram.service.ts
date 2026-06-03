@@ -5,13 +5,14 @@ import { filter, map, Observable, Subject } from 'rxjs';
 export interface GramAttachment {
   type: string;
   url: string;
+  description?: string;
 }
 
 export interface GramPost {
   date: string;
   title: string;
   content: string;
-  attached: GramAttachment;
+  attachments: GramAttachment[];
 }
 
 export interface GramData {
@@ -34,11 +35,9 @@ export class GramService {
         posts.filter((post) => {
           if (mode === 'all') {
             return true;
-          } else if (post.attached.type === mode) {
-            return true;
           }
 
-          return false;
+          return post.attachments.some((a) => a.type === mode);
         }),
       ),
     );

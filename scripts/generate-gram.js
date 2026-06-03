@@ -16,9 +16,11 @@ const sourceGramJson = JSON.parse(
 
 // Collect all referenced filenames from the JSON
 const referencedFiles = new Set(
-  sourceGramJson.posts
-    .filter(post => post.attached && post.attached.url)
-    .map(post => post.attached.url),
+  sourceGramJson.posts.flatMap(post =>
+    (post.attachments || [])
+      .filter(att => att && att.url)
+      .map(att => att.url),
+  ),
 );
 
 // Copy all referenced files into the public directory
@@ -35,8 +37,10 @@ for (const name of referencedFiles) {
 
 // Patch the attachment urls to include the correct public path
 for (const post of sourceGramJson.posts) {
-  if (post.attached && post.attached.url) {
-    post.attached.url = `/images/gram/${post.attached.url}`;
+  for (const att of (post.attachments || [])) {
+    if (att && att.url) {
+      att.url = `/images/gram/${att.url}`;
+    }
   }
 }
 

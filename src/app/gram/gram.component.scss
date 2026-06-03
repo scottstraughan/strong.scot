@@ -86,18 +86,39 @@
     background-color: var(--color-base-tertiary);
     color: var(--white-color);
     overflow: hidden;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 
-    a {
+    .gram-attachment {
       display: block;
+      position: relative;
+      overflow: hidden;
       transition:
         transform 200ms ease,
         box-shadow 200ms ease;
-      border-radius: 12px;
-      overflow: hidden;
+
+      .gram-attachment-description {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 30%;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        color: var(--white-color);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 1rem;
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: opacity 200ms ease;
+        pointer-events: none;
+      }
+
+      &:hover .gram-attachment-description {
+        opacity: 1;
+      }
     }
 
-    video,
     img {
       width: 100%;
       height: auto;
@@ -105,14 +126,31 @@
     }
 
     video {
+      width: 100%;
+      height: auto;
+      display: block;
       cursor: pointer;
     }
+  }
 
-    &-title {
-      line-height: normal;
-      padding: 0.5rem;
-      font-size: 0.85rem;
-    }
+  .gram-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    line-height: normal;
+  }
+
+  .gram-item-footer-title {
+    font-size: 0.85rem;
+    text-align: left;
+  }
+
+  .gram-item-footer-date {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    text-align: right;
+    white-space: nowrap;
   }
 
   .empty {

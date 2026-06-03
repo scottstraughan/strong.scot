@@ -69,31 +69,45 @@
   </header>
   <div class="content" #content (scroll)="onContentScroll($event)">
     @for (post of displayedPosts(); track $index) {
-      <div class="gram-item" [class.is-video]="post.attached.type === 'video'">
+      <div class="gram-item">
         <div class="gram-item-wrapper">
-          @if (post.attached.type === "video") {
-            <video
-              [src]="post.attached.url"
-              muted
-              loop
-              playsinline
-              autoplay
-            ></video>
-          } @else {
-            <a
-              [href]="post.attached.url"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                [src]="post.attached.url"
-                [alt]="post.title"
-                loading="lazy"
-              />
-            </a>
+          @for (att of post.attachments; track $index) {
+            @if (att.type === "video") {
+              <div class="gram-attachment">
+                <video
+                  [src]="att.url"
+                  muted
+                  loop
+                  playsinline
+                  autoplay
+                ></video>
+                @if (att.description) {
+                  <div class="gram-attachment-description">{{ att.description }}</div>
+                }
+              </div>
+            } @else {
+              <a
+                [href]="att.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gram-attachment"
+              >
+                <img
+                  [src]="att.url"
+                  [alt]="post.title"
+                  loading="lazy"
+                />
+                @if (att.description) {
+                  <div class="gram-attachment-description">{{ att.description }}</div>
+                }
+              </a>
+            }
           }
         </div>
-        <div class="gram-item-title">{{ post.title }}</div>
+        <div class="gram-item-footer">
+          <span class="gram-item-footer-title">{{ post.title }}</span>
+          <span class="gram-item-footer-date">{{ post.date }}</span>
+        </div>
       </div>
     }
 
