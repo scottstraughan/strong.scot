@@ -32,13 +32,15 @@ export class GramService {
     return this.httpClient.get<GramData>('/images/gram/gram.json').pipe(
       map((data) => data.posts),
       map((posts) =>
-        posts.filter((post) => {
-          if (mode === 'all') {
-            return true;
-          }
-
-          return post.attachments.some((a) => a.type === mode);
-        }),
+        posts
+          .map((post) => ({
+            ...post,
+            attachments:
+              mode === 'all'
+                ? post.attachments
+                : post.attachments.filter((a) => a.type === mode),
+          }))
+          .filter((post) => post.attachments.length > 0),
       ),
     );
   }
