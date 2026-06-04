@@ -16,10 +16,11 @@ import { Meta, Title } from '@angular/platform-browser';
 import { AppComponent } from '../app.component';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { switchMap, tap } from 'rxjs';
+import { LoadingAnimationComponent } from "../shared/ui-components/loading-animaton/loading-animation.component";
 
 @Component({
   selector: 'scott-gram',
-  imports: [],
+  imports: [LoadingAnimationComponent],
   templateUrl: './gram.component.html',
   styleUrl: './gram.component.scss',
 })

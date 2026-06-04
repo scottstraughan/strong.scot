@@ -32,17 +32,30 @@
     },
     {
       "date": "30/05/2026",
-      "title": "Bruce the Pigeon",
+      "title": "Bruce \"the unit\" Pigeon",
       "location": "Dalgety Bay, Scotland",
       "content": "",
       "attachments": [
         {
           "type": "image",
-          "url": "4d84cf4bb713c4e1.jpg",
-          "description": "This absolute unit visits us daily"
+          "url": "4d84cf4bb713c4e1.jpg"
         }
       ]
     },
+     {
+       "date": "30/05/2026",
+       "title": "Business Trip to Vienna",
+       "location": "Vienna, Austria",
+       "content": "",
+       "attachments": [
+         { "type": "image", "url": "5d9f878092af6661.jpeg", "description": "Lets party..." },
+         { "type": "image", "url": "9cf456edbc9e1f79.jpeg", "description": "Fancy meal on last day" },
+         { "type": "image", "url": "a3acce8783b6e248.jpeg", "description": "My room" },
+         { "type": "image", "url": "d11ef40c407d430b.jpeg", "description": "Ready for a feast" },
+         { "type": "image", "url": "fdf91c4ed1f37720.jpeg", "description": "About as smart as I come" },
+         { "type": "video", "url": "e63eb476ce362296.mp4", "description": "Extensive tour of my room" }
+       ]
+     },
     {
       "date": "30/05/2026",
       "title": "Trip to Croatia (Cavtat)'",

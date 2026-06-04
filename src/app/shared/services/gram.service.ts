@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { filter, map, Observable, Subject } from 'rxjs';
+import { delay, filter, map, Observable, Subject } from 'rxjs';
 
 export interface GramAttachment {
   type: string;
