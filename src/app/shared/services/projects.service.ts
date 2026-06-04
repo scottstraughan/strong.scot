@@ -53,6 +53,45 @@ export class ProjectsService {
         { name: 'Try Bob', href: 'https://www.saorsail.com' },
       ],
     },
+        {
+      tag: 'scoredash.xyz',
+      name: 'Scoredash.xyz',
+      description:
+        'Scoredash.xyz is a modern web app that lets you assess how well a GitHub or GitLab user or organization follows open-source best practices. Built as a full Progressive Web App (PWA), it features local caching, a fast and responsive interface, and support for both dark and light modes. With Scoredash, you can explore multiple repositories, view detailed adherence scores, and get actionable recommendations on how to improve each project’s open-source quality. Its clean, modern UI makes it easy to navigate and compare projects, making Scoredash an essential tool for developers, contributors, and maintainers aiming to elevate their open-source standards.',
+      graphics: [
+        {
+          url: './images/projects/scoredash.xyz/dark-mode.webp',
+          title: 'Dark Mode',
+          type: ProjectGraphicType.IMAGE,
+        },
+        {
+          url: './images/projects/scoredash.xyz/explore.webp',
+          title: 'Explore',
+          type: ProjectGraphicType.IMAGE,
+        },
+        {
+          url: './images/projects/scoredash.xyz/add.webp',
+          title: 'Add a new org',
+          type: ProjectGraphicType.IMAGE,
+        },
+      ],
+      tags: [
+        'Angular',
+        'TypeScript',
+        'HTML5',
+        'SASS',
+        'IndexedDB',
+        'API',
+        'OpenSSF',
+      ],
+      urls: [
+        {
+          name: 'GitHub',
+          href: 'https://github.com/scottstraughan/openssf-scorecard-dashboard',
+        },
+        { name: 'scoredash.xyz', href: 'https://www.scoredash.xyz' },
+      ],
+    },
     {
       tag: 'saorsail',
       name: 'Saorsail',
@@ -95,45 +134,6 @@ export class ProjectsService {
           href: 'https://github.com/scottstraughan/saorsail-web',
         },
         { name: 'saorsail.com', href: 'https://www.saorsail.com' },
-      ],
-    },
-    {
-      tag: 'scoredash.xyz',
-      name: 'Scoredash.xyz',
-      description:
-        'Scoredash.xyz is a modern web app that lets you assess how well a GitHub or GitLab user or organization follows open-source best practices. Built as a full Progressive Web App (PWA), it features local caching, a fast and responsive interface, and support for both dark and light modes. With Scoredash, you can explore multiple repositories, view detailed adherence scores, and get actionable recommendations on how to improve each project’s open-source quality. Its clean, modern UI makes it easy to navigate and compare projects, making Scoredash an essential tool for developers, contributors, and maintainers aiming to elevate their open-source standards.',
-      graphics: [
-        {
-          url: './images/projects/scoredash.xyz/dark-mode.webp',
-          title: 'Dark Mode',
-          type: ProjectGraphicType.IMAGE,
-        },
-        {
-          url: './images/projects/scoredash.xyz/explore.webp',
-          title: 'Explore',
-          type: ProjectGraphicType.IMAGE,
-        },
-        {
-          url: './images/projects/scoredash.xyz/add.webp',
-          title: 'Add a new org',
-          type: ProjectGraphicType.IMAGE,
-        },
-      ],
-      tags: [
-        'Angular',
-        'TypeScript',
-        'HTML5',
-        'SASS',
-        'IndexedDB',
-        'API',
-        'OpenSSF',
-      ],
-      urls: [
-        {
-          name: 'GitHub',
-          href: 'https://github.com/scottstraughan/openssf-scorecard-dashboard',
-        },
-        { name: 'scoredash.xyz', href: 'https://www.scoredash.xyz' },
       ],
     },
     {
