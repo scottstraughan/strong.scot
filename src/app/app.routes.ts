@@ -44,8 +44,7 @@ export const routes: Routes = [
   },
   {
     path: 'rants',
-    pathMatch: 'full',
-    component: RantsComponent,
+    redirectTo: '',
   },
   {
     path: '**',
