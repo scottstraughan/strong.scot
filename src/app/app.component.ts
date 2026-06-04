@@ -1,11 +1,14 @@
 import {
   Component,
+  computed,
   ElementRef,
   HostListener,
+  inject,
   Signal,
   ViewChild,
 } from '@angular/core';
 import {
+  NavigationEnd,
   NavigationStart,
   Router,
   RouterLink,
@@ -16,7 +19,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { GramComponent } from './gram/gram.component';
 import { GramService } from './shared/services/gram.service';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { filter } from 'rxjs';
+import { filter, map, startWith } from 'rxjs';
 
 @Component({
   selector: 'scott-root',
@@ -45,11 +48,25 @@ export class AppComponent {
   /**
    * Whether the gram modal is visible.
    */
+  protected readonly router = inject(Router);
+
   protected readonly showGramModal: Signal<boolean>;
 
+  private readonly currentUrl = toSignal(
+    this.router.events.pipe(
+      filter((e) => e instanceof NavigationEnd),
+      map(() => this.router.url),
+      startWith(this.router.url),
+    ),
+  );
+
+  protected readonly isHomeActive = computed(() => {
+    const url = this.currentUrl() ?? '/';
+    return url === '/' || url.startsWith('/rants');
+  });
+
   constructor(
-    protected router: Router,
-    private gramService: GramService,
+    private gramService: GramService
   ) {
     this.showGramModal = toSignal(this.gramService.visible$, {
       initialValue: false,

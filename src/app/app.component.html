@@ -24,8 +24,7 @@
           (click)="onMenuItemClicked()"
           class="menu-item"
           routerLink="/"
-          routerLinkActive="selected"
-          [routerLinkActiveOptions]="{exact: true}"
+          [class.selected]="isHomeActive()"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
