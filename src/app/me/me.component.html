@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div class="container-wrapper about">
+<div class="container-wrapper about container-with-side">
   <div class="bio">
     <h1>About Me</h1>
     <p>
@@ -188,13 +188,23 @@
     </a>
 
     <div class="other-links">
-      <a href="./me/memes"
-        ><img src="./images/global/troll.svg" alt="Meme Icon" />Memes</a
-      >
-      <a (click)="onPhotosClicked()"
-        ><img src="./images/icons/camera.svg" alt="Gram Icon" />Scotgram
-        (Photos)</a
-      >
+      <a class="button left-icon linkedin" href="./me/memes">
+        <div class="icon">
+          <img src="./images/global/troll.svg" alt="Tehehehehe" />
+        </div>
+        <div class="text">
+          Memes
+        </div>
+      </a>
+
+      <a class="button left-icon linkedin" (click)="onPhotosClicked()">
+        <div class="icon">
+          <img src="./images/icons/camera.svg" alt="ScotGram" />
+        </div>
+        <div class="text">
+          Scotgram (Photos)
+        </div>
+      </a>
     </div>
   </div>
 </div>

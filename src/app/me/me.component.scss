@@ -55,16 +55,6 @@
 }
 
 .about {
-  display: flex;
-  flex-direction: column-reverse;
-
-  @media screen and (min-width: $mobile-breakpoint) {
-    padding-top: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 331px;
-    grid-gap: 2rem;
-  }
-
   .bio {
     flex: 1 1 70%;
 
@@ -127,25 +117,8 @@
       gap: 0.5rem;
       margin-bottom: 1rem;
 
-      a {
-        @include interactive;
-
+      .button {
         background-color: var(--hint-color);
-        border-radius: 6px;
-        color: white;
-        padding: 0.5rem 1rem;
-        text-align: center;
-        transition: var(--default-transition-normal);
-
-        &:hover {
-          background-color: #d1199e;
-        }
-
-        img {
-          max-width: 20px;
-          vertical-align: middle;
-          margin-right: 0.5rem;
-        }
       }
     }
 

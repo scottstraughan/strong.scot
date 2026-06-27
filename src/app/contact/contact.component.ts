@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { Meta, Title } from '@angular/platform-browser';
 import { NgOptimizedImage } from '@angular/common';
@@ -10,6 +10,14 @@ import {
 } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoadingAnimationComponent } from '../shared/ui-components/loading-animaton/loading-animation.component';
+import { delay } from 'rxjs';
+
+interface DiscordLanyardResponse {
+  data: {
+    discord_status: string;
+  };
+  success: boolean;
+}
 
 @Component({
   selector: 'scott-contact',
@@ -18,11 +26,16 @@ import { LoadingAnimationComponent } from '../shared/ui-components/loading-anima
   imports: [NgOptimizedImage, ReactiveFormsModule, LoadingAnimationComponent],
   styleUrl: './contact.component.scss',
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   /**
    * Form carry endpoint to post to.
    */
   static readonly FORM_CARRY_ENDPOINT = 'https://formcarry.com/s/OMfnuh0fyp8';
+
+  /**
+   * Discord API url.
+   */
+  static readonly DISCORD_STATUS_ENDPOINT = 'https://api.lanyard.rest/v1/users/1506599046607929394';
 
   /**
    * Title of component
@@ -45,6 +58,21 @@ export class ContactComponent {
   readonly error: WritableSignal<boolean> = signal(false);
 
   /**
+   * Signal to use if we are online on Discord.
+   */
+  readonly isDiscordOnline: WritableSignal<boolean> = signal(false);
+
+  /**
+   * Whether the Discord status request is still loading.
+   */
+  readonly isDiscordStatusLoading: WritableSignal<boolean> = signal(true);
+
+  /**
+   * Discord status label.
+   */
+  readonly discordStatusLabel: WritableSignal<string> = signal('Checking status...');
+
+  /**
    * Form group.
    */
   readonly contactForm: FormGroup = new FormGroup({
@@ -60,6 +88,11 @@ export class ContactComponent {
   });
 
   /**
+   * Allows access to statics.
+   */
+  protected readonly ContactComponent = ContactComponent;
+
+  /**
    * Constructor.
    */
   constructor(
@@ -72,6 +105,29 @@ export class ContactComponent {
       description:
         'Contact me using my web form, you can also connect with me on LinkedIn.',
     });
+  }
+
+  ngOnInit() {
+    this.loadDiscordStatus();
+  }
+
+  private loadDiscordStatus() {
+    this.httpClient
+      .get<DiscordLanyardResponse>(ContactComponent.DISCORD_STATUS_ENDPOINT)
+      .pipe(delay(2000)) // Add a delay of 1 second before processing the response
+      .subscribe({
+        next: (response) => {
+          const isOnline = response.data?.discord_status === 'online';
+          this.isDiscordOnline.set(isOnline);
+          this.discordStatusLabel.set(isOnline ? 'Online' : 'Offline');
+          this.isDiscordStatusLoading.set(false);
+        },
+        error: () => {
+          this.isDiscordOnline.set(false);
+          this.discordStatusLabel.set('Offline');
+          this.isDiscordStatusLoading.set(false);
+        },
+      });
   }
 
   /**

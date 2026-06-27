@@ -38,6 +38,18 @@ a {
   width: 100%;
 }
 
+.container-with-side {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media screen and (min-width: $mobile-breakpoint) {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 331px;
+    padding-top: 2rem;
+  }
+}
+
 .formatted-content {
   font-size: 1.1rem;
 
@@ -83,6 +95,7 @@ a {
   gap: 1rem;
   overflow: hidden;
   padding: 0 1rem 0 0;
+  height: auto;
 
   &:not(.icon) {
     padding: 1rem 2rem;
@@ -99,5 +112,20 @@ a {
     height: 20px;
     vertical-align: middle;
     width: 20px;
+  }
+
+  &.left-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    .icon {
+      @include center(false);
+    }
+    
+    .text {
+      @include center(false);
+      flex: 1;
+    }
   }
 }
