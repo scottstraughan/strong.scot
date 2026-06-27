@@ -1,7 +1,14 @@
-import { Component, OnInit, signal, WritableSignal } from '@angular/core';
+import {
+  Component,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { AppComponent } from '../app.component';
 import { Meta, Title } from '@angular/platform-browser';
-import { NgOptimizedImage } from '@angular/common';
+import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
 import {
   FormControl,
   FormGroup,
@@ -99,6 +106,7 @@ export class ContactComponent implements OnInit {
     title: Title,
     meta: Meta,
     private httpClient: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: object,
   ) {
     title.setTitle(`${ContactComponent.TITLE} - ${AppComponent.TITLE}`);
     meta.addTag({
@@ -108,7 +116,9 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadDiscordStatus();
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadDiscordStatus();
+    }
   }
 
   private loadDiscordStatus() {
