@@ -65,9 +65,9 @@ export class ContactComponent implements OnInit {
   readonly error: WritableSignal<boolean> = signal(false);
 
   /**
-   * Signal to use if we are online on Discord.
+   * Discord status from API.
    */
-  readonly isDiscordOnline: WritableSignal<boolean> = signal(false);
+  readonly discordStatus: WritableSignal<string> = signal('offline');
 
   /**
    * Whether the Discord status request is still loading.
@@ -124,20 +124,24 @@ export class ContactComponent implements OnInit {
   private loadDiscordStatus() {
     this.httpClient
       .get<DiscordLanyardResponse>(ContactComponent.DISCORD_STATUS_ENDPOINT)
-      .pipe(delay(2000)) // Add a delay of 1 second before processing the response
+      .pipe(delay(2000))
       .subscribe({
         next: (response) => {
-          const isOnline = response.data?.discord_status === 'online';
-          this.isDiscordOnline.set(isOnline);
-          this.discordStatusLabel.set(isOnline ? 'Online' : 'Offline');
+          const status = response.data?.discord_status || 'offline';
+          this.discordStatus.set(status);
+          this.discordStatusLabel.set(this.titleCase(status));
           this.isDiscordStatusLoading.set(false);
         },
         error: () => {
-          this.isDiscordOnline.set(false);
+          this.discordStatus.set('offline');
           this.discordStatusLabel.set('Offline');
           this.isDiscordStatusLoading.set(false);
         },
       });
+  }
+
+  private titleCase(text: string): string {
+    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
   }
 
   /**

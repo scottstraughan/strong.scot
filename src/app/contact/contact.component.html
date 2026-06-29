@@ -116,8 +116,10 @@
         } @else {
           <span
             class="orb"
-            [class.online]="isDiscordOnline()"
-            [class.offline]="!isDiscordOnline()"
+            [class.online]="discordStatus() === 'online'"
+            [class.idle]="discordStatus() === 'idle'"
+            [class.dnd]="discordStatus() === 'dnd'"
+            [class.offline]="discordStatus() === 'offline'"
           ></span>
         }
       </div>

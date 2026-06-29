@@ -111,10 +111,22 @@
         width: 15px;
         height: 15px;
         border-radius: 100%;
-        background-color: grey;
+        background-color: #757575;
 
         &.online {
           background-color: #3ba55d;
+        }
+
+        &.idle {
+          background-color: #faa61a;
+        }
+
+        &.dnd {
+          background-color: #f04747;
+        }
+
+        &.offline {
+          background-color: #757575;
         }
       }
 
