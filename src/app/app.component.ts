@@ -76,7 +76,6 @@ export class AppComponent {
       .pipe(filter((e) => e instanceof NavigationStart))
       .subscribe((event) => {
         const nav = event as NavigationStart;
-        console.log(nav.url);
         if (nav.url.startsWith('/gram')) {
           this.gramService.show();
         }

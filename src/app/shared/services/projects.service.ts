@@ -279,13 +279,7 @@ export class ProjectsService {
   }
 
   getBestInitialGraphicForProject(project: Project): Graphic | undefined {
-    for (const graphic of project.graphics) {
-      if (graphic.type == ProjectGraphicType.VIDEO) continue;
-
-      return graphic;
-    }
-
-    return undefined;
+    return project.graphics.find((g) => g.type !== ProjectGraphicType.VIDEO);
   }
 }
 

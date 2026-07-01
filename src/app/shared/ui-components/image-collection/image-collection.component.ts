@@ -26,13 +26,13 @@ export class ImageCollectionComponent implements OnInit {
   }
 
   onPrevious() {
-    if (this.images().length == 0) {
+    if (this.images().length === 0) {
       return;
     }
 
     const index = this.index();
 
-    if (index == 0) {
+    if (index === 0) {
       this.index.set(this.images().length - 1);
     } else {
       this.index.set(index - 1);
@@ -40,7 +40,7 @@ export class ImageCollectionComponent implements OnInit {
   }
 
   onNext() {
-    if (this.images().length == 0) {
+    if (this.images().length === 0) {
       return;
     }
 

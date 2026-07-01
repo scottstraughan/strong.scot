@@ -56,7 +56,7 @@ export class ViewRantComponent implements OnInit {
         tap((rant) => meta.addTag({ description: rant.description })),
         tap((rant) => this.createOgMeta(rant)),
         catchError((error) => {
-          this.router.navigate(['./'], { replaceUrl: true }).then();
+          this.router.navigate(['./'], { replaceUrl: true });
 
           return of(error);
         }),
@@ -79,7 +79,7 @@ export class ViewRantComponent implements OnInit {
    * @inheritdoc
    */
   ngOnInit(): void {
-    setTimeout(() => this.hljs.highlightAll().then());
+    setTimeout(() => this.hljs.highlightAll());
   }
 
   onToggleThumbnail() {

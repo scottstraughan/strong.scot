@@ -14,7 +14,7 @@ import {
 } from '../shared/services/gram.service';
 import { Meta, Title } from '@angular/platform-browser';
 import { AppComponent } from '../app.component';
-import { toObservable } from '@angular/core/rxjs-interop';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { switchMap, tap } from 'rxjs';
 import { LoadingAnimationComponent } from "../shared/ui-components/loading-animaton/loading-animation.component";
 
@@ -53,6 +53,7 @@ export class GramComponent {
           this.allPosts.set(posts);
           this.displayCount.set(10);
         }),
+        takeUntilDestroyed(),
       )
       .subscribe();
   }
@@ -78,7 +79,7 @@ export class GramComponent {
   }
 
   protected toggleMediaMode(targetMode: MediaMode) {
-    if (this.mediaMode() == targetMode) {
+    if (this.mediaMode() === targetMode) {
       this.mediaMode.set('all');
     } else {
       this.mediaMode.set(targetMode);

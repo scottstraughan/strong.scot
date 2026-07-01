@@ -35,13 +35,9 @@ export class RantService extends JsonFeedService {
   getRantByTag(tag: string): Observable<Rant> {
     return this.getRants().pipe(
       map((rants) => {
-        for (const project of rants) {
-          if (project.tag == tag) {
-            return project;
-          }
-        }
-
-        throw new Error(`No project with tag "${tag}" was found.`);
+        const rant = rants.find((r) => r.tag === tag);
+        if (!rant) throw new Error(`No rant with tag "${tag}" was found.`);
+        return rant;
       }),
     );
   }
