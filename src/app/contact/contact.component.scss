@@ -24,7 +24,7 @@
       textarea,
       button {
         border: 0;
-        border-radius: 6px;
+        border-radius: var(--border-radius-small);
         font: inherit;
         padding: 1rem;
         width: 100%;
@@ -79,7 +79,7 @@
     .button.action {
       background-color: rgba(255, 255, 255, 0.2);
       border: 0;
-      border-radius: 6px;
+      border-radius: var(--border-radius-small);
       color: var(--white-color);
       display: inline-block;
       font-size: 1rem;
@@ -100,7 +100,7 @@
     gap: 1rem;
 
     .button.discord {
-      background-color: #5865f2;
+      background-color: var(--color-discord);
 
       scott-loading {
         --loading-icon-size: 18px;
@@ -111,22 +111,22 @@
         width: 15px;
         height: 15px;
         border-radius: 100%;
-        background-color: #757575;
+        background-color: var(--color-discord-offline);
 
         &.online {
-          background-color: #3ba55d;
+          background-color: var(--color-discord-online);
         }
 
         &.idle {
-          background-color: #faa61a;
+          background-color: var(--color-discord-idle);
         }
 
         &.dnd {
-          background-color: #f04747;
+          background-color: var(--color-discord-dnd);
         }
 
         &.offline {
-          background-color: #757575;
+          background-color: var(--color-discord-offline);
         }
       }
 
@@ -141,7 +141,7 @@
     }
 
     .button.linkedin {
-      background-color: #0077b5;
+      background-color: var(--color-linkedin);
     }
   }
 }

@@ -16,10 +16,18 @@ $mobile-breakpoint: 800px;
 
   --box-shadow-normal: 3px 3px 5px -3px rgba(0, 0, 0, 0.4);
 
-  --border-radius-normal: 12px;
-  --border-radius-small: 6px;
   --border-radius-large: 16px;
+  --border-radius-normal: 12px;
+  --border-radius-medium: 8px;
+  --border-radius-small: 6px;
 
   --default-transition-normal: 0.5s all;
   --default-transition-quick: 0.3s all;
+
+  --color-discord: #5865f2;
+  --color-discord-online: #3ba55d;
+  --color-discord-idle: #faa61a;
+  --color-discord-dnd: #f04747;
+  --color-discord-offline: #757575;
+  --color-linkedin: #0077b5;
 }
