@@ -98,7 +98,7 @@ export class AppComponent {
       return;
     }
 
-    this.mobileMenuInput.nativeElement.click();
+    this.mobileMenuInput.nativeElement.checked = false;
   }
 
   async onGramClicked() {
