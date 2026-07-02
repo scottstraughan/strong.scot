@@ -11,12 +11,12 @@ import {
   GramPost,
   GramService,
   MediaMode,
-} from '../shared/services/gram.service';
+} from '../../services/gram.service';
 import { Meta, Title } from '@angular/platform-browser';
-import { AppComponent } from '../app.component';
+import { AppComponent } from '../../../app.component';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { switchMap, tap } from 'rxjs';
-import { LoadingAnimationComponent } from "../shared/ui-components/loading-animaton/loading-animation.component";
+import { LoadingAnimationComponent } from '../loading-animaton/loading-animation.component';
 
 @Component({
   selector: 'scott-gram',

@@ -9,7 +9,7 @@ import {
 import { NavigationEnd, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map, startWith } from 'rxjs';
-import { ShoutboxService } from '../shared/services/shoutbox.service';
+import { ShoutboxService } from '../../services/shoutbox.service';
 
 type Scope = 'all' | 'page';
 

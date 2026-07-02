@@ -16,9 +16,9 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
-import { GramComponent } from './gram/gram.component';
+import { GramComponent } from './shared/ui-components/gram/gram.component';
 import { GramService } from './shared/services/gram.service';
-import { ShoutboxComponent } from './shoutbox/shoutbox.component';
+import { ShoutboxComponent } from './shared/ui-components/shoutbox/shoutbox.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map, startWith } from 'rxjs';
 
