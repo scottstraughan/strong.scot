@@ -18,6 +18,7 @@ import {
 import { NgOptimizedImage } from '@angular/common';
 import { GramComponent } from './gram/gram.component';
 import { GramService } from './shared/services/gram.service';
+import { ShoutboxComponent } from './shoutbox/shoutbox.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map, startWith } from 'rxjs';
 
@@ -29,6 +30,7 @@ import { filter, map, startWith } from 'rxjs';
     RouterLink,
     RouterLinkActive,
     GramComponent,
+    ShoutboxComponent,
   ],
   templateUrl: './app.component.html',
   standalone: true,
@@ -65,9 +67,7 @@ export class AppComponent {
     return url === '/' || url.startsWith('/rants');
   });
 
-  constructor(
-    private gramService: GramService
-  ) {
+  constructor(private gramService: GramService) {
     this.showGramModal = toSignal(this.gramService.visible$, {
       initialValue: false,
     });

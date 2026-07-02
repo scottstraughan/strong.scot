@@ -1,0 +1,215 @@
+@use "../../scss/common" as *;
+@use "../../scss/variables" as *;
+
+:host {
+  display: contents;
+}
+
+.widget {
+  @include center(true);
+
+  background-color: var(--color-base-tertiary);
+  border: 0;
+  border-radius: var(--border-radius-normal) 0 0 var(--border-radius-normal);
+  box-shadow: var(--box-shadow-normal);
+  color: var(--white-color);
+  cursor: pointer;
+  height: 76px;
+  width: 76px;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  top: calc(var(--nav-height) + 1.5rem);
+  transition: var(--default-transition-quick);
+  z-index: 999999999;
+
+  img {
+    width: 28px;
+    height: auto;
+  }
+
+  &:hover {
+    width: 84px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999999999;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.container {
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
+  right: 0;
+  width: 400px;
+  height: calc(100vh - 2rem);
+  background-color: var(--color-base-primary);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  border-radius: var(--border-radius-large) 0 0 var(--border-radius-large);
+  overflow: hidden;
+}
+
+.overlay.open .container {
+  transform: translateX(0);
+}
+
+.container .button {
+  background-color: var(--color-base-secondary);
+}
+
+header {
+  background-color: var(--color-base-tertiary);
+  color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  flex-shrink: 0;
+
+  h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: normal;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .tabs {
+    display: flex;
+    height: 100%;
+
+    .tab {
+      background: transparent;
+      border: 0;
+      border-bottom: 4px solid transparent;
+      color: inherit;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: normal;
+      opacity: 0.6;
+      padding: 1.5rem 1rem;
+      transition: var(--default-transition-quick);
+
+      &:hover {
+        opacity: 0.85;
+      }
+
+      &.selected {
+        border-bottom-color: var(--white-color);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+
+    input,
+    textarea {
+      @include interactive;
+
+      background-color: var(--white-color);
+      border: 0;
+      border-radius: var(--border-radius-small);
+      font: inherit;
+      padding: 1rem;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .button {
+      width: 100%;
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .shout-something {
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .entries {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .entry {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-medium);
+    padding: 1rem;
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+      gap: 1rem;
+
+      .username {
+        font-weight: bold;
+      }
+
+      .timestamp {
+        font-size: 1rem;
+        white-space: nowrap;
+      }
+    }
+
+    .message {
+      margin: 0;
+    }
+
+    .page {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: bold;
+      opacity: 0.5;
+    }
+  }
+
+  .empty {
+    text-align: center;
+    opacity: 0.6;
+    padding: 2rem 0;
+  }
+}

@@ -96,6 +96,8 @@ a {
   overflow: hidden;
   padding: 0 1rem 0 0;
   height: auto;
+  border: 0;
+  font-size: inherit;
 
   &:not(.icon) {
     padding: 1rem 2rem;

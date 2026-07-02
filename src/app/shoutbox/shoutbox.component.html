@@ -1,0 +1,94 @@
+@if (enabled) {
+<button
+  type="button"
+  class="widget"
+  (click)="shoutboxService.show()"
+  aria-label="Open shoutbox"
+>
+  <img src="./images/icons/megaphone.svg" alt="" />
+</button>
+
+<div class="overlay" [class.open]="shoutboxService.visible()" (click)="shoutboxService.hide()">
+<div class="container" (click)="$event.stopPropagation()">
+  <header>
+    <h1>
+      <img src="./images/icons/megaphone.svg" alt="" />
+      Shoutbox
+    </h1>
+    <nav class="tabs">
+      <button
+        type="button"
+        class="tab"
+        [class.selected]="scope() === 'all'"
+        (click)="scope.set('all')"
+      >
+        All
+      </button>
+      <button
+        type="button"
+        class="tab"
+        [class.selected]="scope() === 'page'"
+        (click)="scope.set('page')"
+      >
+        Page
+      </button>
+    </nav>
+  </header>
+
+  <div class="content">
+    @if (showForm()) {
+      <form [formGroup]="shoutboxForm" (ngSubmit)="onSubmit()">
+        <input
+          formControlName="username"
+          type="text"
+          placeholder="Your name"
+        />
+        <input
+          formControlName="email"
+          type="email"
+          placeholder="Your email (for verification)"
+        />
+        <textarea
+          formControlName="message"
+          placeholder="Leave a message..."
+        ></textarea>
+        <button
+          type="submit"
+          class="button"
+          [disabled]="shoutboxForm.invalid"
+        >
+          Shout
+        </button>
+      </form>
+    } @else {
+      <button
+        type="button"
+        class="button shout-something"
+        (click)="showForm.set(true)"
+      >
+        Add a Shout
+      </button>
+    }
+
+    <div class="entries">
+      @for (entry of filteredEntries(); track $index) {
+        <div class="entry">
+          <div class="entry-header">
+            <span class="username">{{ entry.username }}</span>
+            <span class="timestamp">{{ entry.timestamp | date: 'mediumDate' }}</span>
+          </div>
+          <p class="message">{{ entry.message }}</p>
+          @if (scope() === 'all') {
+            <span class="page">{{ entry.page }}</span>
+          }
+        </div>
+      }
+
+      @if (filteredEntries().length === 0) {
+        <div class="empty">No messages yet, be the first to post!</div>
+      }
+    </div>
+  </div>
+</div>
+</div>
+}
